@@ -16,6 +16,8 @@ launches were used.
   launched executable `Contents/MacOS/Code`.
 - SDK: `@modelcontextprotocol/sdk` 1.27.1 (client and bundled server), `zod` 3.25.76.
 - Full machine evidence: `test/host-gate/evidence/host-gate-run.json` (redacted: no token, no private paths).
+- Raw launcher stdout for both attempts: `evidence/launch-1-failed-run-output.txt`,
+  `evidence/launch-2-pass-run-output.txt` (launcher already placeholder-redacts paths; no secrets).
 
 ## Commands and exits
 
