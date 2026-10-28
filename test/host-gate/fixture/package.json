@@ -1,0 +1,27 @@
+{
+  "name": "bridge90-fixture",
+  "displayName": "Bridge 90 Host Gate Fixture",
+  "description": "Benign host-gate fixture: registers counter commands and a deterministic CodeAction provider. Harmless, test-only.",
+  "publisher": "sc-agent-ide-fixture",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "scAgentIdeFixture90.directAllowed", "title": "Fixture 90: direct allowed" },
+      { "command": "scAgentIdeFixture90.directDenied", "title": "Fixture 90: direct denied" },
+      { "command": "scAgentIdeFixture90.objectAllowed", "title": "Fixture 90: object allowed" },
+      { "command": "scAgentIdeFixture90.objectDenied", "title": "Fixture 90: object denied" },
+      { "command": "scAgentIdeFixture90.combinedDenied", "title": "Fixture 90: combined denied" },
+      { "command": "scAgentIdeFixture90.combinedAllowed", "title": "Fixture 90: combined allowed" },
+      { "command": "scAgentIdeFixture90.deniedBare", "title": "Fixture 90: denied bare" }
+    ]
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,1549 @@
+{
+  "gate": "bridge90-real-vscode-host",
+  "verdict": "PASS",
+  "generatedAt": "2026-10-28T05:44:49.349Z",
+  "note": "Bridge source/artefact unchanged by this gate. No SuperCollider, no current Bridge (:3333) deployment, no GitHub write, no product deployment.",
+  "oneLaunch": {
+    "pid": 45279,
+    "pgid": 45279,
+    "executable": "<VSCODE_APP>/Contents/MacOS/Code",
+    "argsNamesOnly": [
+      "--user-data-dir=<TMP_ROOT>/user-data",
+      "--extensions-dir=<TMP_ROOT>/extensions",
+      "--extensionDevelopmentPath=<BRIDGE_DIR>",
+      "--extensionDevelopmentPath=<FIXTURE_DIR>",
+      "--extensionTestsPath=<REPO>/test/host-gate/host/index.js",
+      "--disable-workspace-trust",
+      "--disable-updates",
+      "--disable-crash-reporter",
+      "--disable-telemetry",
+      "--skip-welcome",
+      "--skip-release-notes",
+      "--disable-gpu",
+      "--preserve-env",
+      "--new-window",
+      "<TMP_ROOT>/workspace"
+    ],
+    "envNames": [
+      "BRIDGE90_EVIDENCE_DIR",
+      "BRIDGE90_PORT",
+      "BRIDGE90_EXPECT_BUNDLE_SHA",
+      "BRIDGE90_EXPECT_FIXTURE_SHA",
+      "BRIDGE90_BRIDGE_DIR",
+      "BRIDGE90_FIXTURE_DIR",
+      "BRIDGE90_APP_ROOT",
+      "BRIDGE90_DEPLOYED_DIR",
+      "BRIDGE90_SDK_VERSION",
+      "BRIDGE90_LAUNCH_FLAGS"
+    ],
+    "exit": {
+      "code": 0,
+      "signal": null,
+      "at": "2026-10-28T05:44:47.529Z",
+      "durationMs": 12630
+    },
+    "port": 52315,
+    "timeoutSec": 300,
+    "launchCount": 1
+  },
+  "processTree": {
+    "sampledGroupMembers": [
+      "45279 45209 45279 <VSCODE_APP>/Contents/MacOS/Code --user-data-dir=<TMP_ROOT>/user-data --extensions-dir=<TMP_ROOT>/extensions --extensionDevelopmentPath=<BRIDGE_DIR> --extensionDevelopmentPath=<BRIDGE_DIR>/test/host-gate/fixture --extensionTestsPath=<BRIDGE_DIR>/test/host-gate/host/index.js --disable-workspace-trust --disable-updates --disable-crash-reporter --disable-telemetry --skip-welcome --skip-release-notes --disable-gpu --preserve-env --new-window <TMP_ROOT>/workspace",
+      "45282 45279 45279 <VSCODE_APP>/Contents/Frameworks/Code Helper.app/Contents/MacOS/Code Helper --type=gpu-process --user-data-dir=<TMP_ROOT>/user-data --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAABgAAAAAAAAAGAAAAAAAAAAIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAA= --use-gl=disabled --shared-files --field-trial-handle=1718379636,r,1415533614845687737,17082098704066443125,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker,ScreenCaptureKitPickerScreen,ScreenCaptureKitStreamPickerSonoma --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,HideCursorWhileTyping,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TimeoutHangingVideoCaptureStarts,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=1935764596,r,12819214074836995362,1194674743964877834,4 --trace-process-track-uuid=3190708988185955192 --seatbelt-client=24",
+      "45283 45279 45279 <VSCODE_APP>/Contents/Frameworks/Code Helper.app/Contents/MacOS/Code Helper --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=network --user-data-dir=<TMP_ROOT>/user-data --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --cors-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --fetch-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files --field-trial-handle=1718379636,r,1415533614845687737,17082098704066443125,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker,ScreenCaptureKitPickerScreen,ScreenCaptureKitStreamPickerSonoma --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,HideCursorWhileTyping,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TimeoutHangingVideoCaptureStarts,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=1935764596,r,12819214074836995362,1194674743964877834,4 --trace-process-track-uuid=3190708989122997041 --seatbelt-client=24",
+      "45311 45279 45279 <VSCODE_APP>/Contents/Frameworks/Code Helper (Renderer).app/Contents/MacOS/Code Helper (Renderer) --type=renderer --user-data-dir=<TMP_ROOT>/user-data --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --cors-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --fetch-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --app-path=<VSCODE_APP>/Contents/Resources/app --enable-sandbox --enable-blink-features=HighlightAPI --max-active-webgl-contexts=32 --disable-gpu-compositing --disable-blink-features=FontMatchingCTMigration,StandardizedBrowserZoom, --lang=en-US --num-raster-threads=4 --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --renderer-client-id=4 --time-ticks-at-unix-epoch=-1791290248926840 --launch-time-ticks=1876026270517 --shared-files --field-trial-handle=1718379636,r,1415533614845687737,17082098704066443125,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,PdfUseShowSaveFilePicker,ScreenCaptureKitPickerScreen,ScreenCaptureKitStreamPickerSonoma --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,HideCursorWhileTyping,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TimeoutHangingVideoCaptureStarts,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=1935764596,r,12819214074836995362,1194674743964877834,4 --trace-process-track-uuid=3190708990060038890 --vscode-window-config=vscode:b257c52c-91a1-4315-8fef-7df2d5a64ab2 --seatbelt-client=58"
+    ],
+    "sampledGroupMemberCount": 4,
+    "superColliderMembers": [],
+    "remainingGroupMembersAfterExit": [],
+    "processGroupAliveAfterExit": false,
+    "portOpenAfterExit": false
+  },
+  "preflight": {
+    "pass": true,
+    "checks": [
+      {
+        "name": "git HEAD is the controlled source commit",
+        "ok": true,
+        "observed": {
+          "expected": "1827501466c9c81e408e04a2a6a9f0698ec535c1",
+          "actual": "1827501466c9c81e408e04a2a6a9f0698ec535c1"
+        }
+      },
+      {
+        "name": "bridge tracked sources/config are unmodified (bundle input is the reviewed tree)",
+        "ok": true,
+        "observed": ""
+      },
+      {
+        "name": "controlled bundle exists",
+        "ok": true,
+        "observed": "<BRIDGE_DIR>/out/extension.js"
+      },
+      {
+        "name": "controlled bundle sha256 matches the declared build hash",
+        "ok": true,
+        "observed": {
+          "expected": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821",
+          "actual": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821"
+        }
+      },
+      {
+        "name": "bundle is newer than the tool source it was built from",
+        "ok": true,
+        "observed": true
+      },
+      {
+        "name": "bundle contains the authorization denial message",
+        "ok": true,
+        "observed": {
+          "denyMessageLiteralInSource": true,
+          "denyMessageInBundle": true,
+          "sseEndpointInBundle": true,
+          "messagesEndpointInBundle": true,
+          "healthEndpointInBundle": true,
+          "codeActionProviderCommandInBundle": true
+        }
+      },
+      {
+        "name": "bundle contains the real SSE transport endpoints",
+        "ok": true,
+        "observed": {
+          "denyMessageLiteralInSource": true,
+          "denyMessageInBundle": true,
+          "sseEndpointInBundle": true,
+          "messagesEndpointInBundle": true,
+          "healthEndpointInBundle": true,
+          "codeActionProviderCommandInBundle": true
+        }
+      },
+      {
+        "name": "bundle routes code actions through vscode.executeCodeActionProvider",
+        "ok": true,
+        "observed": {
+          "denyMessageLiteralInSource": true,
+          "denyMessageInBundle": true,
+          "sseEndpointInBundle": true,
+          "messagesEndpointInBundle": true,
+          "healthEndpointInBundle": true,
+          "codeActionProviderCommandInBundle": true
+        }
+      },
+      {
+        "name": "bridge source registers every tool the runner calls",
+        "ok": true,
+        "observed": {
+          "registeredTools": [
+            "apply_code_action",
+            "close_file",
+            "create_file",
+            "delete_file",
+            "execute_vscode_command",
+            "find_references",
+            "get_active_file",
+            "get_code_actions",
+            "get_diagnostics",
+            "get_document_symbols",
+            "get_hover",
+            "get_open_tabs",
+            "get_selection",
+            "get_workspace_info",
+            "go_to_definition",
+            "kill_terminal",
+            "list_terminals",
+            "open_file",
+            "read_file",
+            "read_terminal",
+            "rename_symbol",
+            "run_terminal_command",
+            "search_workspace_symbols",
+            "show_diff",
+            "spawn_terminal",
+            "write_file",
+            "write_terminal"
+          ],
+          "runnerTools": [
+            "apply_code_action",
+            "execute_vscode_command",
+            "get_code_actions",
+            "get_workspace_info"
+          ],
+          "missingTools": [],
+          "missingFromBundle": []
+        }
+      },
+      {
+        "name": "built bundle contains every tool name the runner calls",
+        "ok": true,
+        "observed": {
+          "registeredTools": [
+            "apply_code_action",
+            "close_file",
+            "create_file",
+            "delete_file",
+            "execute_vscode_command",
+            "find_references",
+            "get_active_file",
+            "get_code_actions",
+            "get_diagnostics",
+            "get_document_symbols",
+            "get_hover",
+            "get_open_tabs",
+            "get_selection",
+            "get_workspace_info",
+            "go_to_definition",
+            "kill_terminal",
+            "list_terminals",
+            "open_file",
+            "read_file",
+            "read_terminal",
+            "rename_symbol",
+            "run_terminal_command",
+            "search_workspace_symbols",
+            "show_diff",
+            "spawn_terminal",
+            "write_file",
+            "write_terminal"
+          ],
+          "runnerTools": [
+            "apply_code_action",
+            "execute_vscode_command",
+            "get_code_actions",
+            "get_workspace_info"
+          ],
+          "missingTools": [],
+          "missingFromBundle": []
+        }
+      },
+      {
+        "name": "fixture activation entry exists",
+        "ok": true,
+        "observed": "<BRIDGE_DIR>/test/host-gate/fixture/extension.js"
+      },
+      {
+        "name": "fixture package declares an activation event and engine compatibility",
+        "ok": true,
+        "observed": {
+          "activationEvents": [
+            "onStartupFinished"
+          ],
+          "engines": {
+            "vscode": "^1.93.0"
+          }
+        }
+      },
+      {
+        "name": "fixture extension id matches the runner expectation",
+        "ok": true,
+        "observed": {
+          "idsMatchRunner": true,
+          "fixtureIds": [
+            "scAgentIdeFixture90.combinedAllowed",
+            "scAgentIdeFixture90.combinedDenied",
+            "scAgentIdeFixture90.deniedBare",
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.directDenied",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.objectDenied"
+          ],
+          "runnerIds": [
+            "scAgentIdeFixture90.combinedAllowed",
+            "scAgentIdeFixture90.combinedDenied",
+            "scAgentIdeFixture90.deniedBare",
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.directDenied",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.objectDenied"
+          ],
+          "titlesMatchRunner": true,
+          "fixtureTitles": [
+            "case04-empty-object-command",
+            "case05-empty-bare-command",
+            "case06a-object-carrier-member",
+            "case06b-object-carrier-nonmember",
+            "case07-combined-denied-before-edit",
+            "case09-combined-allowed-edit-precedence",
+            "case10-edit-only"
+          ],
+          "runnerTitles": [
+            "case04-empty-object-command",
+            "case05-empty-bare-command",
+            "case06a-object-carrier-member",
+            "case06b-object-carrier-nonmember",
+            "case07-combined-denied-before-edit",
+            "case09-combined-allowed-edit-precedence",
+            "case10-edit-only"
+          ],
+          "idMatchesRunnerConstant": true,
+          "runnerFixtureId": "sc-agent-ide-fixture.bridge90-fixture"
+        }
+      },
+      {
+        "name": "fixture command ids match the runner consumer list",
+        "ok": true,
+        "observed": {
+          "idsMatchRunner": true,
+          "fixtureIds": [
+            "scAgentIdeFixture90.combinedAllowed",
+            "scAgentIdeFixture90.combinedDenied",
+            "scAgentIdeFixture90.deniedBare",
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.directDenied",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.objectDenied"
+          ],
+          "runnerIds": [
+            "scAgentIdeFixture90.combinedAllowed",
+            "scAgentIdeFixture90.combinedDenied",
+            "scAgentIdeFixture90.deniedBare",
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.directDenied",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.objectDenied"
+          ],
+          "titlesMatchRunner": true,
+          "fixtureTitles": [
+            "case04-empty-object-command",
+            "case05-empty-bare-command",
+            "case06a-object-carrier-member",
+            "case06b-object-carrier-nonmember",
+            "case07-combined-denied-before-edit",
+            "case09-combined-allowed-edit-precedence",
+            "case10-edit-only"
+          ],
+          "runnerTitles": [
+            "case04-empty-object-command",
+            "case05-empty-bare-command",
+            "case06a-object-carrier-member",
+            "case06b-object-carrier-nonmember",
+            "case07-combined-denied-before-edit",
+            "case09-combined-allowed-edit-precedence",
+            "case10-edit-only"
+          ],
+          "idMatchesRunnerConstant": true,
+          "runnerFixtureId": "sc-agent-ide-fixture.bridge90-fixture"
+        }
+      },
+      {
+        "name": "fixture CodeAction titles match the runner expectations",
+        "ok": true,
+        "observed": {
+          "idsMatchRunner": true,
+          "fixtureIds": [
+            "scAgentIdeFixture90.combinedAllowed",
+            "scAgentIdeFixture90.combinedDenied",
+            "scAgentIdeFixture90.deniedBare",
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.directDenied",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.objectDenied"
+          ],
+          "runnerIds": [
+            "scAgentIdeFixture90.combinedAllowed",
+            "scAgentIdeFixture90.combinedDenied",
+            "scAgentIdeFixture90.deniedBare",
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.directDenied",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.objectDenied"
+          ],
+          "titlesMatchRunner": true,
+          "fixtureTitles": [
+            "case04-empty-object-command",
+            "case05-empty-bare-command",
+            "case06a-object-carrier-member",
+            "case06b-object-carrier-nonmember",
+            "case07-combined-denied-before-edit",
+            "case09-combined-allowed-edit-precedence",
+            "case10-edit-only"
+          ],
+          "runnerTitles": [
+            "case04-empty-object-command",
+            "case05-empty-bare-command",
+            "case06a-object-carrier-member",
+            "case06b-object-carrier-nonmember",
+            "case07-combined-denied-before-edit",
+            "case09-combined-allowed-edit-precedence",
+            "case10-edit-only"
+          ],
+          "idMatchesRunnerConstant": true,
+          "runnerFixtureId": "sc-agent-ide-fixture.bridge90-fixture"
+        }
+      },
+      {
+        "name": "runner target basename matches the fixture provider basename",
+        "ok": true,
+        "observed": "bridge90-target.txt"
+      },
+      {
+        "name": "every mcpServer setting used by runner/bridge is contributed with a default",
+        "ok": true,
+        "observed": {
+          "keys": [
+            "port",
+            "authToken",
+            "allowedCommands",
+            "enableContextPush"
+          ],
+          "missing": [],
+          "defaults": {
+            "port": 3333,
+            "authToken": "",
+            "allowedCommands": [],
+            "enableContextPush": true
+          }
+        }
+      },
+      {
+        "name": "real VS Code executable exists",
+        "ok": true,
+        "observed": "<VSCODE_APP>/Contents/MacOS/Code"
+      },
+      {
+        "name": "installed VS Code CLI matches the expected package version",
+        "ok": true,
+        "observed": {
+          "expected": "1.143.1",
+          "actual": "1.143.1"
+        }
+      },
+      {
+        "name": "real MCP SDK client transport resolves for the host runner",
+        "ok": true,
+        "observed": {
+          "version": "1.27.1",
+          "sdkPackagePath": "<BRIDGE_DIR>/node_modules/@modelcontextprotocol/sdk/package.json",
+          "clientResolved": "<BRIDGE_DIR>/node_modules/@modelcontextprotocol/sdk/dist/cjs/client/index.js",
+          "sseResolved": "<BRIDGE_DIR>/node_modules/@modelcontextprotocol/sdk/dist/cjs/client/sse.js",
+          "zodVersion": "3.25.76"
+        }
+      },
+      {
+        "name": "controlled bundle is not the deployed 0.2.5 artifact",
+        "ok": true,
+        "observed": {
+          "directory": "<DEPLOYED_DIR>",
+          "present": false,
+          "entryPresent": false,
+          "sha256": null,
+          "differsFromControlled": null
+        }
+      },
+      {
+        "name": "host harness/fixture contain no SuperCollider spawn or reference",
+        "ok": true,
+        "observed": []
+      },
+      {
+        "name": "loopback ephemeral port is bindable for the gate",
+        "ok": true,
+        "observed": {
+          "ok": true,
+          "port": 52314,
+          "notReservedBridgePort": true
+        }
+      }
+    ],
+    "bundle": {
+      "path": "<BRIDGE_DIR>/out/extension.js",
+      "exists": true,
+      "size": 881640,
+      "sha256": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821",
+      "expectedSha256": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821",
+      "matchesExpected": true,
+      "newerThanToolSource": true
+    },
+    "toolContract": {
+      "registeredTools": [
+        "apply_code_action",
+        "close_file",
+        "create_file",
+        "delete_file",
+        "execute_vscode_command",
+        "find_references",
+        "get_active_file",
+        "get_code_actions",
+        "get_diagnostics",
+        "get_document_symbols",
+        "get_hover",
+        "get_open_tabs",
+        "get_selection",
+        "get_workspace_info",
+        "go_to_definition",
+        "kill_terminal",
+        "list_terminals",
+        "open_file",
+        "read_file",
+        "read_terminal",
+        "rename_symbol",
+        "run_terminal_command",
+        "search_workspace_symbols",
+        "show_diff",
+        "spawn_terminal",
+        "write_file",
+        "write_terminal"
+      ],
+      "runnerTools": [
+        "apply_code_action",
+        "execute_vscode_command",
+        "get_code_actions",
+        "get_workspace_info"
+      ],
+      "missingTools": [],
+      "missingFromBundle": []
+    },
+    "fixtureContract": {
+      "idsMatchRunner": true,
+      "fixtureIds": [
+        "scAgentIdeFixture90.combinedAllowed",
+        "scAgentIdeFixture90.combinedDenied",
+        "scAgentIdeFixture90.deniedBare",
+        "scAgentIdeFixture90.directAllowed",
+        "scAgentIdeFixture90.directDenied",
+        "scAgentIdeFixture90.objectAllowed",
+        "scAgentIdeFixture90.objectDenied"
+      ],
+      "runnerIds": [
+        "scAgentIdeFixture90.combinedAllowed",
+        "scAgentIdeFixture90.combinedDenied",
+        "scAgentIdeFixture90.deniedBare",
+        "scAgentIdeFixture90.directAllowed",
+        "scAgentIdeFixture90.directDenied",
+        "scAgentIdeFixture90.objectAllowed",
+        "scAgentIdeFixture90.objectDenied"
+      ],
+      "titlesMatchRunner": true,
+      "fixtureTitles": [
+        "case04-empty-object-command",
+        "case05-empty-bare-command",
+        "case06a-object-carrier-member",
+        "case06b-object-carrier-nonmember",
+        "case07-combined-denied-before-edit",
+        "case09-combined-allowed-edit-precedence",
+        "case10-edit-only"
+      ],
+      "runnerTitles": [
+        "case04-empty-object-command",
+        "case05-empty-bare-command",
+        "case06a-object-carrier-member",
+        "case06b-object-carrier-nonmember",
+        "case07-combined-denied-before-edit",
+        "case09-combined-allowed-edit-precedence",
+        "case10-edit-only"
+      ],
+      "idMatchesRunnerConstant": true,
+      "runnerFixtureId": "sc-agent-ide-fixture.bridge90-fixture"
+    },
+    "settingsContract": {
+      "keys": [
+        "port",
+        "authToken",
+        "allowedCommands",
+        "enableContextPush"
+      ],
+      "missing": [],
+      "defaults": {
+        "port": 3333,
+        "authToken": "",
+        "allowedCommands": [],
+        "enableContextPush": true
+      }
+    },
+    "sdk": {
+      "version": "1.27.1",
+      "sdkPackagePath": "<BRIDGE_DIR>/node_modules/@modelcontextprotocol/sdk/package.json",
+      "clientResolved": "<BRIDGE_DIR>/node_modules/@modelcontextprotocol/sdk/dist/cjs/client/index.js",
+      "sseResolved": "<BRIDGE_DIR>/node_modules/@modelcontextprotocol/sdk/dist/cjs/client/sse.js",
+      "zodVersion": "3.25.76"
+    },
+    "deployed": {
+      "directory": "<DEPLOYED_DIR>",
+      "present": false,
+      "entryPresent": false,
+      "sha256": null,
+      "differsFromControlled": null
+    },
+    "app": {
+      "appPath": "<VSCODE_APP>",
+      "executable": "<VSCODE_APP>/Contents/MacOS/Code",
+      "cli": "<VSCODE_APP>/Contents/Resources/app/bin/code",
+      "appRoot": "<VSCODE_APP>/Contents/Resources/app",
+      "cliVersion": "1.143.1",
+      "cliCommit": "e646868227c3e3a9e3f24277c8c7220be42c0be7",
+      "expectedVersion": "1.143.1"
+    },
+    "source": {
+      "head": "1827501466c9c81e408e04a2a6a9f0698ec535c1",
+      "branch": "test/real-host-90-20261028",
+      "expectedHeadSha": "1827501466c9c81e408e04a2a6a9f0698ec535c1",
+      "headMatchesExpected": true,
+      "trackedSourcesClean": true,
+      "trackedSourcesDirtyOutput": "",
+      "bridgeExtensionId": "jhamama.vscode-mcp-bridge-ext",
+      "bridgeVersion": "0.2.5",
+      "bridgeMain": "./out/extension.js"
+    },
+    "superCollider": {
+      "harnessReferences": [],
+      "preexistingProcessesObserved": 3,
+      "preexistingProcessesRedacted": [
+        "4261 <redacted-args>",
+        "11529 <redacted-args>",
+        "46695 <redacted-args>"
+      ]
+    }
+  },
+  "launchIdentity": {
+    "generatedAt": "2026-10-28T05:44:34.898Z",
+    "purpose": "bridge #90 command-authorization real VS Code host gate (one launch)",
+    "source": {
+      "repoHead": "1827501466c9c81e408e04a2a6a9f0698ec535c1",
+      "branch": "test/real-host-90-20261028",
+      "expectedHead": "1827501466c9c81e408e04a2a6a9f0698ec535c1",
+      "trackedSourcesClean": true
+    },
+    "controlledBundle": {
+      "path": "<BRIDGE_DIR>/out/extension.js",
+      "sha256": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821",
+      "size": 881640,
+      "buildCommand": "node esbuild.config.js --production",
+      "typecheckCommand": "npx tsc --noEmit"
+    },
+    "fixture": {
+      "id": "sc-agent-ide-fixture.bridge90-fixture",
+      "version": "0.0.1",
+      "entrySha256": "1ab083c43bccad3166689b04c0bbb544e220c87ea5b31d2b7f01022191260df9"
+    },
+    "deployedBuild": {
+      "directory": "<DEPLOYED_DIR>",
+      "present": false,
+      "entryPresent": false,
+      "sha256": null,
+      "differsFromControlled": null
+    },
+    "vscode": {
+      "appPath": "<VSCODE_APP>",
+      "executable": "<VSCODE_APP>/Contents/MacOS/Code",
+      "cli": "<VSCODE_APP>/Contents/Resources/app/bin/code",
+      "appRoot": "<VSCODE_APP>/Contents/Resources/app",
+      "cliVersion": "1.143.1",
+      "cliCommit": "e646868227c3e3a9e3f24277c8c7220be42c0be7",
+      "expectedVersion": "1.143.1"
+    },
+    "sdk": {
+      "version": "1.27.1",
+      "sdkPackagePath": "<BRIDGE_DIR>/node_modules/@modelcontextprotocol/sdk/package.json",
+      "clientResolved": "<BRIDGE_DIR>/node_modules/@modelcontextprotocol/sdk/dist/cjs/client/index.js",
+      "sseResolved": "<BRIDGE_DIR>/node_modules/@modelcontextprotocol/sdk/dist/cjs/client/sse.js",
+      "zodVersion": "3.25.76"
+    },
+    "port": 52315,
+    "tokenLength": 48,
+    "tokenRecorded": false,
+    "cliArgsNamesOnly": [
+      "--user-data-dir=<TMP_ROOT>/user-data",
+      "--extensions-dir=<TMP_ROOT>/extensions",
+      "--extensionDevelopmentPath=<BRIDGE_DIR>",
+      "--extensionDevelopmentPath=<FIXTURE_DIR>",
+      "--extensionTestsPath=<REPO>/test/host-gate/host/index.js",
+      "--disable-workspace-trust",
+      "--disable-updates",
+      "--disable-crash-reporter",
+      "--disable-telemetry",
+      "--skip-welcome",
+      "--skip-release-notes",
+      "--disable-gpu",
+      "--preserve-env",
+      "--new-window",
+      "<TMP_ROOT>/workspace"
+    ],
+    "envNamesPassed": [
+      "BRIDGE90_EVIDENCE_DIR",
+      "BRIDGE90_PORT",
+      "BRIDGE90_EXPECT_BUNDLE_SHA",
+      "BRIDGE90_EXPECT_FIXTURE_SHA",
+      "BRIDGE90_BRIDGE_DIR",
+      "BRIDGE90_FIXTURE_DIR",
+      "BRIDGE90_APP_ROOT",
+      "BRIDGE90_DEPLOYED_DIR",
+      "BRIDGE90_SDK_VERSION",
+      "BRIDGE90_LAUNCH_FLAGS"
+    ],
+    "modeProvenance": {
+      "host": "real VS Code extension development host launched from the installed app executable",
+      "bridge": "loaded via --extensionDevelopmentPath (development extension; extensionMode not directly observable)",
+      "fixture": "loaded via --extensionDevelopmentPath; reports its own ExtensionContext.extensionMode",
+      "notProduction": true
+    }
+  },
+  "hostEvidence": {
+    "gate": "bridge90-real-vscode-host",
+    "method": "real VS Code extension host + real @modelcontextprotocol/sdk client over authenticated loopback SSE",
+    "startedAt": "2026-10-28T05:44:36.336Z",
+    "testsRoot": "<BRIDGE_DIR>/test/host-gate/host/index.js",
+    "evidenceDir": "<TMP_ROOT>/evidence",
+    "envNamesPresent": {
+      "BRIDGE90_EVIDENCE_DIR": true,
+      "BRIDGE90_PORT": true,
+      "BRIDGE90_EXPECT_BUNDLE_SHA": true,
+      "BRIDGE90_EXPECT_FIXTURE_SHA": true,
+      "BRIDGE90_BRIDGE_DIR": true,
+      "BRIDGE90_FIXTURE_DIR": true,
+      "BRIDGE90_APP_ROOT": true,
+      "BRIDGE90_DEPLOYED_DIR": true,
+      "BRIDGE90_SDK_VERSION": true,
+      "BRIDGE90_LAUNCH_FLAGS": true
+    },
+    "cases": [
+      {
+        "id": "case01",
+        "name": "empty allowlist: direct execute_vscode_command is denied",
+        "inputs": {
+          "tool": "execute_vscode_command",
+          "command": "scAgentIdeFixture90.directDenied",
+          "allowedCommands": []
+        },
+        "startedAt": "2026-10-28T05:44:36.462Z",
+        "checks": [
+          {
+            "assertion": "phase 1 effective allowedCommands is empty",
+            "ok": true,
+            "observed": "[]"
+          },
+          {
+            "assertion": "MCP tool error surfaced for scAgentIdeFixture90.directDenied",
+            "ok": true,
+            "observed": "{\"isError\":true,\"text\":\"Command 'scAgentIdeFixture90.directDenied' is not in the allowed commands list\"}"
+          },
+          {
+            "assertion": "denial is the allowlist rejection, not an unknown tool/command: scAgentIdeFixture90.directDenied",
+            "ok": true,
+            "observed": "Command 'scAgentIdeFixture90.directDenied' is not in the allowed commands list"
+          },
+          {
+            "assertion": "denied command counter is 0",
+            "ok": true,
+            "observed": "0"
+          },
+          {
+            "assertion": "no document side effect",
+            "ok": true,
+            "observed": "{\"before\":1,\"after\":1}"
+          }
+        ],
+        "pass": true,
+        "finishedAt": "2026-10-28T05:44:36.564Z"
+      },
+      {
+        "id": "case04",
+        "name": "empty allowlist: CodeAction.command object is denied",
+        "inputs": {
+          "tool": "apply_code_action",
+          "line": 3,
+          "allowedCommands": []
+        },
+        "startedAt": "2026-10-28T05:44:36.565Z",
+        "checks": [
+          {
+            "assertion": "positive control: fixture provider offered the case04 object-command action",
+            "ok": true,
+            "observed": "{\"index\":0,\"matches\":[0],\"titles\":[\"case04-empty-object-command\",\"Modify\"],\"count\":2}"
+          },
+          {
+            "assertion": "MCP tool error surfaced for scAgentIdeFixture90.objectDenied",
+            "ok": true,
+            "observed": "{\"isError\":true,\"text\":\"Command 'scAgentIdeFixture90.objectDenied' is not in the allowed commands list\"}"
+          },
+          {
+            "assertion": "denial is the allowlist rejection, not an unknown tool/command: scAgentIdeFixture90.objectDenied",
+            "ok": true,
+            "observed": "Command 'scAgentIdeFixture90.objectDenied' is not in the allowed commands list"
+          },
+          {
+            "assertion": "denied object command counter is 0",
+            "ok": true,
+            "observed": "0"
+          },
+          {
+            "assertion": "rejection produced no edit",
+            "ok": true,
+            "observed": "{\"beforeVersion\":1,\"afterVersion\":1,\"changeEvents\":[]}"
+          },
+          {
+            "assertion": "target line 3 is unchanged",
+            "ok": true,
+            "observed": "case04-object-command-empty-list"
+          }
+        ],
+        "pass": true,
+        "finishedAt": "2026-10-28T05:44:36.692Z"
+      },
+      {
+        "id": "case05",
+        "name": "empty allowlist: bare string CodeAction.command is denied",
+        "inputs": {
+          "tool": "apply_code_action",
+          "line": 4,
+          "allowedCommands": []
+        },
+        "startedAt": "2026-10-28T05:44:36.692Z",
+        "checks": [
+          {
+            "assertion": "positive control: fixture provider offered the case05 bare-command action",
+            "ok": true,
+            "observed": "{\"index\":0,\"matches\":[0],\"titles\":[\"case05-empty-bare-command\",\"Modify\"],\"count\":2}"
+          },
+          {
+            "assertion": "MCP tool error surfaced for scAgentIdeFixture90.deniedBare",
+            "ok": true,
+            "observed": "{\"isError\":true,\"text\":\"Command 'scAgentIdeFixture90.deniedBare' is not in the allowed commands list\"}"
+          },
+          {
+            "assertion": "denial is the allowlist rejection, not an unknown tool/command: scAgentIdeFixture90.deniedBare",
+            "ok": true,
+            "observed": "Command 'scAgentIdeFixture90.deniedBare' is not in the allowed commands list"
+          },
+          {
+            "assertion": "denied bare command counter is 0",
+            "ok": true,
+            "observed": "0"
+          },
+          {
+            "assertion": "rejection produced no edit",
+            "ok": true,
+            "observed": "{\"beforeVersion\":1,\"afterVersion\":1,\"changeEvents\":[]}"
+          },
+          {
+            "assertion": "target line 4 is unchanged",
+            "ok": true,
+            "observed": "case05-bare-command-empty-list"
+          }
+        ],
+        "pass": true,
+        "finishedAt": "2026-10-28T05:44:36.818Z"
+      },
+      {
+        "id": "case10",
+        "name": "empty allowlist: edit-only CodeAction is applied",
+        "inputs": {
+          "tool": "apply_code_action",
+          "line": 9,
+          "allowedCommands": []
+        },
+        "startedAt": "2026-10-28T05:44:36.818Z",
+        "checks": [
+          {
+            "assertion": "positive control: fixture provider offered the edit-only action",
+            "ok": true,
+            "observed": "{\"index\":0,\"matches\":[0],\"titles\":[\"case10-edit-only\",\"Modify\"],\"count\":2}"
+          },
+          {
+            "assertion": "apply_code_action reported applied:true",
+            "ok": true,
+            "observed": "{\"applied\":true,\"title\":\"case10-edit-only\"}"
+          },
+          {
+            "assertion": "apply_code_action did not surface an MCP tool error",
+            "ok": true,
+            "observed": null
+          },
+          {
+            "assertion": "edit applied exactly once (line 9 replaced)",
+            "ok": true,
+            "observed": "EDITED:case10-edit-only"
+          },
+          {
+            "assertion": "exactly one content-bearing document change event",
+            "ok": true,
+            "observed": "{\"effective\":1,\"all\":[{\"at\":1793166276827,\"reason\":\"edit\",\"contentChanges\":1},{\"at\":1793166276828,\"reason\":\"edit\",\"contentChanges\":0}]}"
+          },
+          {
+            "assertion": "document version advanced once",
+            "ok": true,
+            "observed": "{\"before\":1,\"after\":2}"
+          },
+          {
+            "assertion": "document became dirty (edit not auto-saved)",
+            "ok": true,
+            "observed": "true"
+          },
+          {
+            "assertion": "edit was not written to disk",
+            "ok": true,
+            "observed": "{\"diskEqualsBaseline\":true}"
+          },
+          {
+            "assertion": "edit-only action executed no command at all",
+            "ok": true,
+            "observed": "[0,0,0,0,0,0,0]"
+          }
+        ],
+        "pass": true,
+        "finishedAt": "2026-10-28T05:44:36.948Z"
+      },
+      {
+        "id": "case02",
+        "name": "nonempty allowlist: allowlisted direct execute_vscode_command executes exactly once",
+        "inputs": {
+          "tool": "execute_vscode_command",
+          "command": "scAgentIdeFixture90.directAllowed",
+          "allowedCommands": [
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.combinedAllowed"
+          ]
+        },
+        "startedAt": "2026-10-28T05:44:41.554Z",
+        "checks": [
+          {
+            "assertion": "tool call succeeded (positive control for the whole command path)",
+            "ok": true,
+            "observed": "{\"result\":{\"ok\":true,\"command\":\"scAgentIdeFixture90.directAllowed\",\"args\":[{\"case\":\"02\"}]}}"
+          },
+          {
+            "assertion": "fixture command observed the real execution",
+            "ok": true,
+            "observed": "{\"result\":{\"ok\":true,\"command\":\"scAgentIdeFixture90.directAllowed\",\"args\":[{\"case\":\"02\"}]}}"
+          },
+          {
+            "assertion": "allowlisted command counter is exactly 1",
+            "ok": true,
+            "observed": "1"
+          },
+          {
+            "assertion": "command received the forwarded arguments",
+            "ok": true,
+            "observed": "[{\"case\":\"02\"}]"
+          }
+        ],
+        "pass": true,
+        "finishedAt": "2026-10-28T05:44:41.555Z"
+      },
+      {
+        "id": "case03",
+        "name": "nonempty allowlist: nonmember direct command is denied",
+        "inputs": {
+          "tool": "execute_vscode_command",
+          "command": "scAgentIdeFixture90.directDenied",
+          "allowedCommands": [
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.combinedAllowed"
+          ]
+        },
+        "startedAt": "2026-10-28T05:44:41.555Z",
+        "checks": [
+          {
+            "assertion": "MCP tool error surfaced for scAgentIdeFixture90.directDenied",
+            "ok": true,
+            "observed": "{\"isError\":true,\"text\":\"Command 'scAgentIdeFixture90.directDenied' is not in the allowed commands list\"}"
+          },
+          {
+            "assertion": "denial is the allowlist rejection, not an unknown tool/command: scAgentIdeFixture90.directDenied",
+            "ok": true,
+            "observed": "Command 'scAgentIdeFixture90.directDenied' is not in the allowed commands list"
+          },
+          {
+            "assertion": "denied command counter is 0",
+            "ok": true,
+            "observed": "0"
+          }
+        ],
+        "pass": true,
+        "finishedAt": "2026-10-28T05:44:41.556Z"
+      },
+      {
+        "id": "case06",
+        "name": "object carrier: same allowlist membership decides positive and negative",
+        "inputs": {
+          "tool": "apply_code_action",
+          "lines": [
+            5,
+            6
+          ],
+          "allowedCommands": [
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.combinedAllowed"
+          ]
+        },
+        "startedAt": "2026-10-28T05:44:41.556Z",
+        "checks": [
+          {
+            "assertion": "positive control: member action was offered by the provider",
+            "ok": true,
+            "observed": "{\"index\":0,\"matches\":[0],\"titles\":[\"case06a-object-carrier-member\",\"Modify\"],\"count\":2}"
+          },
+          {
+            "assertion": "apply_code_action reported applied:true",
+            "ok": true,
+            "observed": "{\"applied\":true,\"title\":\"case06a-object-carrier-member\"}"
+          },
+          {
+            "assertion": "apply_code_action did not surface an MCP tool error",
+            "ok": true,
+            "observed": null
+          },
+          {
+            "assertion": "member object command executed exactly once",
+            "ok": true,
+            "observed": "1"
+          },
+          {
+            "assertion": "member object command received its arguments",
+            "ok": true,
+            "observed": "[{\"case\":\"06a\"}]"
+          },
+          {
+            "assertion": "member action produced no edit",
+            "ok": true,
+            "observed": "{\"beforeVersion\":2,\"afterVersion\":2,\"changeEvents\":[]}"
+          },
+          {
+            "assertion": "positive control: nonmember action was offered by the provider",
+            "ok": true,
+            "observed": "{\"index\":0,\"matches\":[0],\"titles\":[\"case06b-object-carrier-nonmember\",\"Modify\"],\"count\":2}"
+          },
+          {
+            "assertion": "MCP tool error surfaced for scAgentIdeFixture90.objectDenied",
+            "ok": true,
+            "observed": "{\"isError\":true,\"text\":\"Command 'scAgentIdeFixture90.objectDenied' is not in the allowed commands list\"}"
+          },
+          {
+            "assertion": "denial is the allowlist rejection, not an unknown tool/command: scAgentIdeFixture90.objectDenied",
+            "ok": true,
+            "observed": "Command 'scAgentIdeFixture90.objectDenied' is not in the allowed commands list"
+          },
+          {
+            "assertion": "nonmember object command counter is 0",
+            "ok": true,
+            "observed": "0"
+          },
+          {
+            "assertion": "nonmember action produced no edit",
+            "ok": true,
+            "observed": "{\"beforeVersion\":2,\"afterVersion\":2,\"changeEvents\":[]}"
+          },
+          {
+            "assertion": "target line 6 is unchanged",
+            "ok": true,
+            "observed": "case06b-object-carrier-nonmember"
+          }
+        ],
+        "pass": true,
+        "finishedAt": "2026-10-28T05:44:41.811Z"
+      },
+      {
+        "id": "case07",
+        "name": "denied combined edit+command action is rejected before the edit",
+        "inputs": {
+          "tool": "apply_code_action",
+          "line": 7,
+          "allowedCommands": [
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.combinedAllowed"
+          ]
+        },
+        "startedAt": "2026-10-28T05:44:41.812Z",
+        "checks": [
+          {
+            "assertion": "positive control: combined denied action was offered by the provider",
+            "ok": true,
+            "observed": "{\"index\":0,\"matches\":[0],\"titles\":[\"case07-combined-denied-before-edit\",\"Modify\"],\"count\":2}"
+          },
+          {
+            "assertion": "MCP tool error surfaced for scAgentIdeFixture90.combinedDenied",
+            "ok": true,
+            "observed": "{\"isError\":true,\"text\":\"Command 'scAgentIdeFixture90.combinedDenied' is not in the allowed commands list\"}"
+          },
+          {
+            "assertion": "denial is the allowlist rejection, not an unknown tool/command: scAgentIdeFixture90.combinedDenied",
+            "ok": true,
+            "observed": "Command 'scAgentIdeFixture90.combinedDenied' is not in the allowed commands list"
+          },
+          {
+            "assertion": "no edit was applied before the rejection",
+            "ok": true,
+            "observed": "{\"beforeVersion\":2,\"afterVersion\":2}"
+          },
+          {
+            "assertion": "no document change event was emitted",
+            "ok": true,
+            "observed": "[]"
+          },
+          {
+            "assertion": "target line 7 still holds its baseline text",
+            "ok": true,
+            "observed": "case07-combined-denied-before-edit"
+          },
+          {
+            "assertion": "denied combined command counter is 0",
+            "ok": true,
+            "observed": "0"
+          }
+        ],
+        "pass": true,
+        "finishedAt": "2026-10-28T05:44:41.943Z"
+      },
+      {
+        "id": "case09",
+        "name": "allowed combined edit+command action applies the edit once and skips the command",
+        "inputs": {
+          "tool": "apply_code_action",
+          "line": 8,
+          "allowedCommands": [
+            "scAgentIdeFixture90.directAllowed",
+            "scAgentIdeFixture90.objectAllowed",
+            "scAgentIdeFixture90.combinedAllowed"
+          ]
+        },
+        "startedAt": "2026-10-28T05:44:41.943Z",
+        "checks": [
+          {
+            "assertion": "positive control: combined allowed action was offered by the provider",
+            "ok": true,
+            "observed": "{\"index\":0,\"matches\":[0],\"titles\":[\"case09-combined-allowed-edit-precedence\",\"Modify\"],\"count\":2}"
+          },
+          {
+            "assertion": "apply_code_action reported applied:true",
+            "ok": true,
+            "observed": "{\"applied\":true,\"title\":\"case09-combined-allowed-edit-precedence\"}"
+          },
+          {
+            "assertion": "apply_code_action did not surface an MCP tool error",
+            "ok": true,
+            "observed": null
+          },
+          {
+            "assertion": "edit applied exactly once",
+            "ok": true,
+            "observed": "EDITED:case09-combined-allowed-edit-precedence"
+          },
+          {
+            "assertion": "marker appears exactly once in the document",
+            "ok": true,
+            "observed": "1"
+          },
+          {
+            "assertion": "exactly one content-bearing document change event",
+            "ok": true,
+            "observed": "{\"effective\":1,\"all\":[{\"at\":1793166281952,\"reason\":\"edit\",\"contentChanges\":1}]}"
+          },
+          {
+            "assertion": "document version advanced once",
+            "ok": true,
+            "observed": "{\"before\":2,\"after\":3}"
+          },
+          {
+            "assertion": "edit was not written to disk",
+            "ok": true,
+            "observed": "{\"diskEqualsBaseline\":true}"
+          },
+          {
+            "assertion": "carried allowed command was NOT executed (existing edit precedence)",
+            "ok": true,
+            "observed": "0"
+          }
+        ],
+        "pass": true,
+        "finishedAt": "2026-10-28T05:44:42.076Z"
+      },
+      {
+        "id": "case08",
+        "name": "aggregate: all denied commands have zero executions and the target document is unchanged",
+        "inputs": {
+          "counters": [
+            "scAgentIdeFixture90.directDenied",
+            "scAgentIdeFixture90.objectDenied",
+            "scAgentIdeFixture90.deniedBare",
+            "scAgentIdeFixture90.combinedDenied"
+          ]
+        },
+        "startedAt": "2026-10-28T05:44:42.076Z",
+        "checks": [
+          {
+            "assertion": "every denied command counter is 0",
+            "ok": true,
+            "observed": "{\"scAgentIdeFixture90.directDenied\":0,\"scAgentIdeFixture90.objectDenied\":0,\"scAgentIdeFixture90.deniedBare\":0,\"scAgentIdeFixture90.combinedDenied\":0}"
+          },
+          {
+            "assertion": "all non-authorized lines keep their baseline text",
+            "ok": true,
+            "observed": "[]"
+          },
+          {
+            "assertion": "target document is unchanged on disk (no write leaked through)",
+            "ok": true,
+            "observed": "{\"diskEqualsBaseline\":true}"
+          },
+          {
+            "assertion": "only the two authorized edit markers exist",
+            "ok": true,
+            "observed": "{\"case09Marker\":1,\"case10Marker\":1}"
+          }
+        ],
+        "pass": true,
+        "finishedAt": "2026-10-28T05:44:42.077Z"
+      }
+    ],
+    "phases": [
+      {
+        "name": "empty-allowlist",
+        "allowedCommands": [],
+        "toolCount": 27,
+        "tools": [
+          "get_active_file",
+          "get_selection",
+          "get_open_tabs",
+          "get_diagnostics",
+          "show_diff",
+          "read_file",
+          "write_file",
+          "create_file",
+          "delete_file",
+          "open_file",
+          "close_file",
+          "run_terminal_command",
+          "find_references",
+          "go_to_definition",
+          "get_hover",
+          "get_document_symbols",
+          "search_workspace_symbols",
+          "get_code_actions",
+          "apply_code_action",
+          "rename_symbol",
+          "get_workspace_info",
+          "execute_vscode_command",
+          "spawn_terminal",
+          "list_terminals",
+          "read_terminal",
+          "write_terminal",
+          "kill_terminal"
+        ],
+        "livenessCallSucceeded": true,
+        "startedAt": "2026-10-28T05:44:36.462Z",
+        "finishedAt": "2026-10-28T05:44:36.948Z",
+        "sessionReleased": true,
+        "serverStoppedForReconfigure": true
+      },
+      {
+        "name": "nonempty-allowlist",
+        "allowedCommands": [
+          "scAgentIdeFixture90.directAllowed",
+          "scAgentIdeFixture90.objectAllowed",
+          "scAgentIdeFixture90.combinedAllowed"
+        ],
+        "requestedAllowedCommands": [
+          "scAgentIdeFixture90.directAllowed",
+          "scAgentIdeFixture90.objectAllowed",
+          "scAgentIdeFixture90.combinedAllowed"
+        ],
+        "restartObservedDown": true,
+        "restartObservedUp": true,
+        "restartStable": true,
+        "healthAfterRestart": {
+          "status": "ok",
+          "version": "0.2.5",
+          "connectedAgents": 0,
+          "port": 52315
+        },
+        "startedAt": "2026-10-28T05:44:41.545Z",
+        "toolCount": 27,
+        "livenessCallSucceeded": true,
+        "finishedAt": "2026-10-28T05:44:42.077Z"
+      }
+    ],
+    "errors": [],
+    "host": {
+      "vscodeVersion": "1.143.1",
+      "appName": "Visual Studio Code",
+      "appHost": "desktop",
+      "uiKind": "Desktop",
+      "extensionHostPid": 45346,
+      "workspaceFolderName": "workspace",
+      "launchFlagsDeclaredByLauncher": "[\"user-data-dir\",\"extensions-dir\",\"extensionDevelopmentPath\",\"extensionDevelopmentPath\",\"extensionTestsPath\",\"disable-workspace-trust\",\"disable-updates\",\"disable-crash-reporter\",\"disable-telemetry\",\"skip-welcome\",\"skip-release-notes\",\"disable-gpu\",\"preserve-env\",\"new-window\"]"
+    },
+    "identity": {
+      "bridge": {
+        "id": "jhamama.vscode-mcp-bridge-ext",
+        "version": "0.2.5",
+        "extensionPath": "<BRIDGE_DIR>",
+        "expectedExtensionPath": "<BRIDGE_DIR>",
+        "pathMatchesLaunchArg": true,
+        "bundlePath": "<BRIDGE_DIR>/out/extension.js",
+        "bundleSha256": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821",
+        "expectedBundleSha256": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821",
+        "bundleShaMatches": true,
+        "isActive": true
+      },
+      "fixture": {
+        "id": "sc-agent-ide-fixture.bridge90-fixture",
+        "version": "0.0.1",
+        "extensionPath": "<BRIDGE_DIR>/test/host-gate/fixture",
+        "expectedExtensionPath": "<BRIDGE_DIR>/test/host-gate/fixture",
+        "pathMatchesLaunchArg": true,
+        "entryPath": "<BRIDGE_DIR>/test/host-gate/fixture/extension.js",
+        "entrySha256": "1ab083c43bccad3166689b04c0bbb544e220c87ea5b31d2b7f01022191260df9",
+        "expectedEntrySha256": "1ab083c43bccad3166689b04c0bbb544e220c87ea5b31d2b7f01022191260df9",
+        "entryShaMatches": true,
+        "isActive": true,
+        "contextModeObserved": 3,
+        "contextModeName": "Test",
+        "contextVscodeVersion": "1.143.1"
+      },
+      "targetModeAttribution": {
+        "bridge": "not directly observable: Extension has no extensionMode property and the extension host exposes ExtensionContext.extensionMode only to the extension itself; provenance = loaded from --extensionDevelopmentPath into an extension-test host (see host.launchFlagsDeclaredByLauncher)",
+        "fixture": "observed from the fixture ExtensionContext (fixture.contextModeObserved/contextModeName)"
+      },
+      "sdkClientVersion": "1.27.1"
+    },
+    "extensionsLoaded": {
+      "total": 97,
+      "builtinCount": 95,
+      "nonBuiltin": [
+        {
+          "id": "sc-agent-ide-fixture.bridge90-fixture",
+          "version": "0.0.1",
+          "extensionPath": "<BRIDGE_DIR>/test/host-gate/fixture"
+        },
+        {
+          "id": "jhamama.vscode-mcp-bridge-ext",
+          "version": "0.2.5",
+          "extensionPath": "<BRIDGE_DIR>"
+        }
+      ],
+      "deployedExtensionLoaded": false,
+      "deployedDirDeclared": "<DEPLOYED_DIR>"
+    },
+    "preflight": {
+      "id": "preflight",
+      "checks": [
+        {
+          "assertion": "bridge bundle sha256 equals the pre-launch controlled build hash",
+          "ok": true,
+          "observed": "{\"expected\":\"9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821\",\"actual\":\"9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821\"}"
+        },
+        {
+          "assertion": "bridge extension path is the controlled worktree, not the deployed build",
+          "ok": true,
+          "observed": "{\"expected\":\"<BRIDGE_DIR>\",\"actual\":\"<BRIDGE_DIR>\"}"
+        },
+        {
+          "assertion": "fixture entry sha256 equals the committed fixture hash",
+          "ok": true,
+          "observed": "{\"expected\":\"1ab083c43bccad3166689b04c0bbb544e220c87ea5b31d2b7f01022191260df9\",\"actual\":\"1ab083c43bccad3166689b04c0bbb544e220c87ea5b31d2b7f01022191260df9\"}"
+        },
+        {
+          "assertion": "fixture extension path is the committed fixture directory",
+          "ok": true,
+          "observed": "{\"expected\":\"<BRIDGE_DIR>/test/host-gate/fixture\",\"actual\":\"<BRIDGE_DIR>/test/host-gate/fixture\"}"
+        },
+        {
+          "assertion": "exactly the two development extensions are loaded (no installed extras)",
+          "ok": true,
+          "observed": "[{\"id\":\"sc-agent-ide-fixture.bridge90-fixture\",\"version\":\"0.0.1\",\"extensionPath\":\"<BRIDGE_DIR>/test/host-gate/fixture\"},{\"id\":\"jhamama.vscode-mcp-bridge-ext\",\"version\":\"0.2.5\",\"extensionPath\":\"<BRIDGE_DIR>\"}]"
+        },
+        {
+          "assertion": "deployed 0.2.5 bridge extension is not loaded",
+          "ok": true,
+          "observed": "false"
+        },
+        {
+          "assertion": "fixture reports a real ExtensionContext mode",
+          "ok": true,
+          "observed": "{\"extensionId\":\"sc-agent-ide-fixture.bridge90-fixture\",\"extensionVersion\":\"0.0.1\",\"extensionMode\":3,\"extensionModeName\":\"Test\",\"vscodeVersion\":\"1.143.1\",\"appName\":\"Visual Studio Code\",\"appHost\":\"desktop\",\"extHostPid\":45346}"
+        }
+      ]
+    },
+    "server": {
+      "port": 52315,
+      "portMatchesLauncher": true,
+      "tokenConfigured": true,
+      "tokenNeverRecorded": true,
+      "phase1AllowedCommands": [],
+      "initialHealth": {
+        "status": "ok",
+        "version": "0.2.5",
+        "connectedAgents": 0,
+        "port": 52315
+      },
+      "authControls": {
+        "sseWithoutAuthorization": {
+          "status": 401
+        },
+        "sseWithWrongToken": {
+          "status": 401
+        }
+      }
+    },
+    "authControlsChecks": {
+      "id": "auth-controls",
+      "checks": [
+        {
+          "assertion": "unauthenticated SSE request is rejected with 401",
+          "ok": true,
+          "observed": "401"
+        },
+        {
+          "assertion": "wrong bearer token SSE request is rejected with 401",
+          "ok": true,
+          "observed": "401"
+        }
+      ]
+    },
+    "target": {
+      "basename": "bridge90-target.txt",
+      "lineCount": 11,
+      "languageId": "plaintext",
+      "baselineLines": [
+        "case01-direct-empty-list",
+        "case02-direct-allowlisted",
+        "case03-direct-nonmember",
+        "case04-object-command-empty-list",
+        "case05-bare-command-empty-list",
+        "case06a-object-carrier-member",
+        "case06b-object-carrier-nonmember",
+        "case07-combined-denied-before-edit",
+        "case09-combined-allowed-edit-precedence",
+        "case10-edit-only-empty-list"
+      ],
+      "baselineDiskMatchesDocument": true,
+      "effectiveFilesAutoSave": "off",
+      "effectiveFilesHotExit": "onExit"
+    },
+    "targetBaselineChecks": {
+      "id": "target-baseline",
+      "checks": [
+        {
+          "assertion": "fixture target has the expected 10-line baseline",
+          "ok": true,
+          "observed": "[\"case01-direct-empty-list\",\"case02-direct-allowlisted\",\"case03-direct-nonmember\",\"case04-object-command-empty-list\",\"case05-bare-command-empty-list\",\"case06a-object-carrier-member\",\"case06b-object-carrier-nonmember\",\"case07-combined-denied-before-edit\",\"case09-combined-allowed-edit-precedence\",\"case10-edit-only-empty-list\"]"
+        },
+        {
+          "assertion": "on-disk target equals the in-memory baseline",
+          "ok": true,
+          "observed": "true"
+        }
+      ]
+    },
+    "toolsListChecks": {
+      "id": "tools-list",
+      "checks": [
+        {
+          "assertion": "all required tools are advertised over the real transport",
+          "ok": true,
+          "observed": "[\"get_active_file\",\"get_selection\",\"get_open_tabs\",\"get_diagnostics\",\"show_diff\",\"read_file\",\"write_file\",\"create_file\",\"delete_file\",\"open_file\",\"close_file\",\"run_terminal_command\",\"find_references\",\"go_to_definition\",\"get_hover\",\"get_document_symbols\",\"search_workspace_symbols\",\"get_code_actions\",\"apply_code_action\",\"rename_symbol\",\"get_workspace_info\",\"execute_vscode_command\",\"spawn_terminal\",\"list_terminals\",\"read_terminal\",\"write_terminal\",\"kill_terminal\"]"
+        }
+      ]
+    },
+    "cleanup": {
+      "startedAt": "2026-10-28T05:44:42.077Z",
+      "clientClosed": true,
+      "dirtyDocumentsBeforeCleanup": 1,
+      "textBeforeRevert": "case01-direct-empty-list\ncase02-direct-allowlisted\ncase03-direct-nonmember\ncase04-object-command-empty-list\ncase05-bare-command-empty-list\ncase06a-object-carrier-member\ncase06b-object-carrier-nonmember\ncase07-combined-denied-before-edit\nEDITED:case09-combined-allowed-edit-precedence\nEDITED:case10-edit-only\n",
+      "versionBeforeRevert": 3,
+      "diskBeforeRevertEqualsBaseline": true,
+      "revertDirty": true,
+      "documentTextRestored": false,
+      "documentDirtyAfterRevert": false,
+      "versionAfterRevert": 3,
+      "editorRevert": true,
+      "documentTextRestoredAfterEditorRevert": true,
+      "documentDirtyAfterEditorRevert": false,
+      "versionAfterEditorRevert": 4,
+      "reopenedDocumentTextRestored": true,
+      "reopenedDocumentDirty": false,
+      "diskAfterRevertEqualsBaseline": true,
+      "afterRevertDiff": null,
+      "stopCommand": "ok",
+      "targetDocumentDirtyStates": [
+        false
+      ],
+      "noDirtyTargetDocument": true,
+      "serverStopped": true,
+      "portClosed": true,
+      "finishedAt": "2026-10-28T05:44:47.442Z"
+    },
+    "durationMs": 11106,
+    "finishedAt": "2026-10-28T05:44:47.443Z",
+    "failedCases": [],
+    "passedCases": [
+      "case01",
+      "case04",
+      "case05",
+      "case10",
+      "case02",
+      "case03",
+      "case06",
+      "case07",
+      "case09",
+      "case08"
+    ],
+    "caseCount": 10,
+    "verdict": "PASS"
+  },
+  "hostEvidenceReadError": null,
+  "progressTail": [
+    "{\"at\":\"2026-10-28T05:44:36.336Z\",\"pid\":45346,\"message\":\"host-info captured\"}",
+    "{\"at\":\"2026-10-28T05:44:36.382Z\",\"pid\":45346,\"message\":\"identity/preflight checks complete\"}",
+    "{\"at\":\"2026-10-28T05:44:36.462Z\",\"pid\":45346,\"message\":\"phase1 connected tools=27\"}",
+    "{\"at\":\"2026-10-28T05:44:36.462Z\",\"pid\":45346,\"message\":\"case-start case01 empty allowlist: direct execute_vscode_command is denied\"}",
+    "{\"at\":\"2026-10-28T05:44:36.564Z\",\"pid\":45346,\"message\":\"case-end case01 pass=true\"}",
+    "{\"at\":\"2026-10-28T05:44:36.565Z\",\"pid\":45346,\"message\":\"case-start case04 empty allowlist: CodeAction.command object is denied\"}",
+    "{\"at\":\"2026-10-28T05:44:36.692Z\",\"pid\":45346,\"message\":\"case-end case04 pass=true\"}",
+    "{\"at\":\"2026-10-28T05:44:36.692Z\",\"pid\":45346,\"message\":\"case-start case05 empty allowlist: bare string CodeAction.command is denied\"}",
+    "{\"at\":\"2026-10-28T05:44:36.818Z\",\"pid\":45346,\"message\":\"case-end case05 pass=true\"}",
+    "{\"at\":\"2026-10-28T05:44:36.818Z\",\"pid\":45346,\"message\":\"case-start case10 empty allowlist: edit-only CodeAction is applied\"}",
+    "{\"at\":\"2026-10-28T05:44:36.948Z\",\"pid\":45346,\"message\":\"case-end case10 pass=true\"}",
+    "{\"at\":\"2026-10-28T05:44:36.948Z\",\"pid\":45346,\"message\":\"phase1 complete; closing client\"}",
+    "{\"at\":\"2026-10-28T05:44:40.962Z\",\"pid\":45346,\"message\":\"phase1 server stopped=true\"}",
+    "{\"at\":\"2026-10-28T05:44:41.545Z\",\"pid\":45346,\"message\":\"phase2 server up=true stable=true allowlist=[\\\"scAgentIdeFixture90.directAllowed\\\",\\\"scAgentIdeFixture90.objectAllowed\\\",\\\"scAgentIdeFixture90.combinedAllowed\\\"]\"}",
+    "{\"at\":\"2026-10-28T05:44:41.554Z\",\"pid\":45346,\"message\":\"case-start case02 nonempty allowlist: allowlisted direct execute_vscode_command executes exactly once\"}",
+    "{\"at\":\"2026-10-28T05:44:41.555Z\",\"pid\":45346,\"message\":\"case-end case02 pass=true\"}",
+    "{\"at\":\"2026-10-28T05:44:41.555Z\",\"pid\":45346,\"message\":\"case-start case03 nonempty allowlist: nonmember direct command is denied\"}",
+    "{\"at\":\"2026-10-28T05:44:41.556Z\",\"pid\":45346,\"message\":\"case-end case03 pass=true\"}",
+    "{\"at\":\"2026-10-28T05:44:41.556Z\",\"pid\":45346,\"message\":\"case-start case06 object carrier: same allowlist membership decides positive and negative\"}",
+    "{\"at\":\"2026-10-28T05:44:41.811Z\",\"pid\":45346,\"message\":\"case-end case06 pass=true\"}",
+    "{\"at\":\"2026-10-28T05:44:41.812Z\",\"pid\":45346,\"message\":\"case-start case07 denied combined edit+command action is rejected before the edit\"}",
+    "{\"at\":\"2026-10-28T05:44:41.943Z\",\"pid\":45346,\"message\":\"case-end case07 pass=true\"}",
+    "{\"at\":\"2026-10-28T05:44:41.943Z\",\"pid\":45346,\"message\":\"case-start case09 allowed combined edit+command action applies the edit once and skips the command\"}",
+    "{\"at\":\"2026-10-28T05:44:42.076Z\",\"pid\":45346,\"message\":\"case-end case09 pass=true\"}",
+    "{\"at\":\"2026-10-28T05:44:42.076Z\",\"pid\":45346,\"message\":\"case-start case08 aggregate: all denied commands have zero executions and the target document is unchanged\"}",
+    "{\"at\":\"2026-10-28T05:44:42.077Z\",\"pid\":45346,\"message\":\"case-end case08 pass=true\"}",
+    "{\"at\":\"2026-10-28T05:44:42.077Z\",\"pid\":45346,\"message\":\"cleanup-start\"}",
+    "{\"at\":\"2026-10-28T05:44:47.443Z\",\"pid\":45346,\"message\":\"finish errors=0 failedCases=\"}"
+  ],
+  "hostLogTail": [
+    "devDeviceId",
+    "contribEditorContentMenu",
+    "tokenInformation",
+    "toolInvocationApproveCombination",
+    "chatPromptFiles",
+    "mcpServerDefinitions",
+    "tabInputMultiDiff",
+    "workspaceTrust",
+    "chatHooks",
+    "chatDebug",
+    "envIsConnectionMetered",
+    "environmentPower",
+    "terminalTitle",
+    "languageModelPricing",
+    "chatInputNotification",
+    "speech",
+    "DELTA: authIssuers",
+    "languageModelRateLimit",
+    "Proceeding with EXTRA proposals (authIssuers, languageModelRateLimit) because extension is in development mode. Still, this EXTENSION WILL BE BROKEN unless product.json is updated.",
+    "[CloudSandboxApi] No 'github' session with scopes [read:user, user:email, repo, workflow]",
+    "(node:45346) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.",
+    "(Use `Code Helper (Plugin) --trace-deprecation ...` to show where the warning was created)",
+    "Unknown channel: agentHostClientByokLm",
+    "Unknown channel: agentHostClientProxy",
+    "Unknown channel: agentHostClientProxy"
+  ],
+  "cleanup": {
+    "tmpRoot": "<TMP_ROOT>",
+    "tmpRootRemoved": true,
+    "evidenceCopiedBeforeRemoval": true
+  }
+}

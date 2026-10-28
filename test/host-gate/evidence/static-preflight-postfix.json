@@ -1,0 +1,615 @@
+{
+  "generatedAt": "2026-10-28T06:16:27.401Z",
+  "kind": "static-preflight (no VS Code launch)",
+  "bridgeDir": "<REPO>",
+  "fixtureDir": "<REPO>/test/host-gate/fixture",
+  "runnerPath": "<REPO>/test/host-gate/host/index.js",
+  "checks": [
+    {
+      "name": "checked-out commit is the reviewed product commit or a committed descendant of it",
+      "ok": true,
+      "observed": {
+        "productBaselineSha": "1827501466c9c81e408e04a2a6a9f0698ec535c1",
+        "harnessHead": "9323df875cdf597ca1214c7939f0a6cd117fc3be",
+        "baselineIsAncestor": true
+      }
+    },
+    {
+      "name": "tracked product inputs are byte-identical to the reviewed product commit",
+      "ok": true,
+      "observed": {
+        "productBaselineSha": "1827501466c9c81e408e04a2a6a9f0698ec535c1",
+        "paths": [
+          "src",
+          "package.json",
+          "package-lock.json",
+          "esbuild.config.js",
+          "tsconfig.json"
+        ],
+        "diffExit": 0
+      }
+    },
+    {
+      "name": "product inputs have no staged, unstaged or untracked changes",
+      "ok": true,
+      "observed": ""
+    },
+    {
+      "name": "controlled bundle exists",
+      "ok": true,
+      "observed": "<REPO>/out/extension.js"
+    },
+    {
+      "name": "controlled bundle sha256 matches the declared build hash",
+      "ok": true,
+      "observed": {
+        "expected": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821",
+        "actual": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821"
+      }
+    },
+    {
+      "name": "bundle is newer than the tool source it was built from",
+      "ok": true,
+      "observed": true
+    },
+    {
+      "name": "bundle contains the authorization denial message",
+      "ok": true,
+      "observed": {
+        "denyMessageLiteralInSource": true,
+        "denyMessageInBundle": true,
+        "sseEndpointInBundle": true,
+        "messagesEndpointInBundle": true,
+        "healthEndpointInBundle": true,
+        "codeActionProviderCommandInBundle": true
+      }
+    },
+    {
+      "name": "bundle contains the real SSE transport endpoints",
+      "ok": true,
+      "observed": {
+        "denyMessageLiteralInSource": true,
+        "denyMessageInBundle": true,
+        "sseEndpointInBundle": true,
+        "messagesEndpointInBundle": true,
+        "healthEndpointInBundle": true,
+        "codeActionProviderCommandInBundle": true
+      }
+    },
+    {
+      "name": "bundle routes code actions through vscode.executeCodeActionProvider",
+      "ok": true,
+      "observed": {
+        "denyMessageLiteralInSource": true,
+        "denyMessageInBundle": true,
+        "sseEndpointInBundle": true,
+        "messagesEndpointInBundle": true,
+        "healthEndpointInBundle": true,
+        "codeActionProviderCommandInBundle": true
+      }
+    },
+    {
+      "name": "bridge source registers every tool the runner calls",
+      "ok": true,
+      "observed": {
+        "registeredTools": [
+          "apply_code_action",
+          "close_file",
+          "create_file",
+          "delete_file",
+          "execute_vscode_command",
+          "find_references",
+          "get_active_file",
+          "get_code_actions",
+          "get_diagnostics",
+          "get_document_symbols",
+          "get_hover",
+          "get_open_tabs",
+          "get_selection",
+          "get_workspace_info",
+          "go_to_definition",
+          "kill_terminal",
+          "list_terminals",
+          "open_file",
+          "read_file",
+          "read_terminal",
+          "rename_symbol",
+          "run_terminal_command",
+          "search_workspace_symbols",
+          "show_diff",
+          "spawn_terminal",
+          "write_file",
+          "write_terminal"
+        ],
+        "runnerTools": [
+          "apply_code_action",
+          "execute_vscode_command",
+          "get_code_actions",
+          "get_workspace_info"
+        ],
+        "missingTools": [],
+        "missingFromBundle": []
+      }
+    },
+    {
+      "name": "built bundle contains every tool name the runner calls",
+      "ok": true,
+      "observed": {
+        "registeredTools": [
+          "apply_code_action",
+          "close_file",
+          "create_file",
+          "delete_file",
+          "execute_vscode_command",
+          "find_references",
+          "get_active_file",
+          "get_code_actions",
+          "get_diagnostics",
+          "get_document_symbols",
+          "get_hover",
+          "get_open_tabs",
+          "get_selection",
+          "get_workspace_info",
+          "go_to_definition",
+          "kill_terminal",
+          "list_terminals",
+          "open_file",
+          "read_file",
+          "read_terminal",
+          "rename_symbol",
+          "run_terminal_command",
+          "search_workspace_symbols",
+          "show_diff",
+          "spawn_terminal",
+          "write_file",
+          "write_terminal"
+        ],
+        "runnerTools": [
+          "apply_code_action",
+          "execute_vscode_command",
+          "get_code_actions",
+          "get_workspace_info"
+        ],
+        "missingTools": [],
+        "missingFromBundle": []
+      }
+    },
+    {
+      "name": "fixture activation entry exists",
+      "ok": true,
+      "observed": "<REPO>/test/host-gate/fixture/extension.js"
+    },
+    {
+      "name": "fixture package declares an activation event and engine compatibility",
+      "ok": true,
+      "observed": {
+        "activationEvents": [
+          "onStartupFinished"
+        ],
+        "engines": {
+          "vscode": "^1.93.0"
+        }
+      }
+    },
+    {
+      "name": "fixture extension id matches the runner expectation",
+      "ok": true,
+      "observed": {
+        "idsMatchRunner": true,
+        "fixtureIds": [
+          "scAgentIdeFixture90.combinedAllowed",
+          "scAgentIdeFixture90.combinedDenied",
+          "scAgentIdeFixture90.deniedBare",
+          "scAgentIdeFixture90.directAllowed",
+          "scAgentIdeFixture90.directDenied",
+          "scAgentIdeFixture90.objectAllowed",
+          "scAgentIdeFixture90.objectDenied"
+        ],
+        "runnerIds": [
+          "scAgentIdeFixture90.combinedAllowed",
+          "scAgentIdeFixture90.combinedDenied",
+          "scAgentIdeFixture90.deniedBare",
+          "scAgentIdeFixture90.directAllowed",
+          "scAgentIdeFixture90.directDenied",
+          "scAgentIdeFixture90.objectAllowed",
+          "scAgentIdeFixture90.objectDenied"
+        ],
+        "titlesMatchRunner": true,
+        "fixtureTitles": [
+          "case04-empty-object-command",
+          "case05-empty-bare-command",
+          "case06a-object-carrier-member",
+          "case06b-object-carrier-nonmember",
+          "case07-combined-denied-before-edit",
+          "case09-combined-allowed-edit-precedence",
+          "case10-edit-only"
+        ],
+        "runnerTitles": [
+          "case04-empty-object-command",
+          "case05-empty-bare-command",
+          "case06a-object-carrier-member",
+          "case06b-object-carrier-nonmember",
+          "case07-combined-denied-before-edit",
+          "case09-combined-allowed-edit-precedence",
+          "case10-edit-only"
+        ],
+        "idMatchesRunnerConstant": true,
+        "runnerFixtureId": "sc-agent-ide-fixture.bridge90-fixture"
+      }
+    },
+    {
+      "name": "fixture command ids match the runner consumer list",
+      "ok": true,
+      "observed": {
+        "idsMatchRunner": true,
+        "fixtureIds": [
+          "scAgentIdeFixture90.combinedAllowed",
+          "scAgentIdeFixture90.combinedDenied",
+          "scAgentIdeFixture90.deniedBare",
+          "scAgentIdeFixture90.directAllowed",
+          "scAgentIdeFixture90.directDenied",
+          "scAgentIdeFixture90.objectAllowed",
+          "scAgentIdeFixture90.objectDenied"
+        ],
+        "runnerIds": [
+          "scAgentIdeFixture90.combinedAllowed",
+          "scAgentIdeFixture90.combinedDenied",
+          "scAgentIdeFixture90.deniedBare",
+          "scAgentIdeFixture90.directAllowed",
+          "scAgentIdeFixture90.directDenied",
+          "scAgentIdeFixture90.objectAllowed",
+          "scAgentIdeFixture90.objectDenied"
+        ],
+        "titlesMatchRunner": true,
+        "fixtureTitles": [
+          "case04-empty-object-command",
+          "case05-empty-bare-command",
+          "case06a-object-carrier-member",
+          "case06b-object-carrier-nonmember",
+          "case07-combined-denied-before-edit",
+          "case09-combined-allowed-edit-precedence",
+          "case10-edit-only"
+        ],
+        "runnerTitles": [
+          "case04-empty-object-command",
+          "case05-empty-bare-command",
+          "case06a-object-carrier-member",
+          "case06b-object-carrier-nonmember",
+          "case07-combined-denied-before-edit",
+          "case09-combined-allowed-edit-precedence",
+          "case10-edit-only"
+        ],
+        "idMatchesRunnerConstant": true,
+        "runnerFixtureId": "sc-agent-ide-fixture.bridge90-fixture"
+      }
+    },
+    {
+      "name": "fixture CodeAction titles match the runner expectations",
+      "ok": true,
+      "observed": {
+        "idsMatchRunner": true,
+        "fixtureIds": [
+          "scAgentIdeFixture90.combinedAllowed",
+          "scAgentIdeFixture90.combinedDenied",
+          "scAgentIdeFixture90.deniedBare",
+          "scAgentIdeFixture90.directAllowed",
+          "scAgentIdeFixture90.directDenied",
+          "scAgentIdeFixture90.objectAllowed",
+          "scAgentIdeFixture90.objectDenied"
+        ],
+        "runnerIds": [
+          "scAgentIdeFixture90.combinedAllowed",
+          "scAgentIdeFixture90.combinedDenied",
+          "scAgentIdeFixture90.deniedBare",
+          "scAgentIdeFixture90.directAllowed",
+          "scAgentIdeFixture90.directDenied",
+          "scAgentIdeFixture90.objectAllowed",
+          "scAgentIdeFixture90.objectDenied"
+        ],
+        "titlesMatchRunner": true,
+        "fixtureTitles": [
+          "case04-empty-object-command",
+          "case05-empty-bare-command",
+          "case06a-object-carrier-member",
+          "case06b-object-carrier-nonmember",
+          "case07-combined-denied-before-edit",
+          "case09-combined-allowed-edit-precedence",
+          "case10-edit-only"
+        ],
+        "runnerTitles": [
+          "case04-empty-object-command",
+          "case05-empty-bare-command",
+          "case06a-object-carrier-member",
+          "case06b-object-carrier-nonmember",
+          "case07-combined-denied-before-edit",
+          "case09-combined-allowed-edit-precedence",
+          "case10-edit-only"
+        ],
+        "idMatchesRunnerConstant": true,
+        "runnerFixtureId": "sc-agent-ide-fixture.bridge90-fixture"
+      }
+    },
+    {
+      "name": "runner target basename matches the fixture provider basename",
+      "ok": true,
+      "observed": "bridge90-target.txt"
+    },
+    {
+      "name": "every mcpServer setting used by runner/bridge is contributed with a default",
+      "ok": true,
+      "observed": {
+        "keys": [
+          "port",
+          "authToken",
+          "allowedCommands",
+          "enableContextPush"
+        ],
+        "missing": [],
+        "defaults": {
+          "port": 3333,
+          "authToken": "",
+          "allowedCommands": [],
+          "enableContextPush": true
+        }
+      }
+    },
+    {
+      "name": "real VS Code executable exists",
+      "ok": true,
+      "observed": "/Applications/Visual Studio Code.app/Contents/MacOS/Code"
+    },
+    {
+      "name": "installed VS Code CLI matches the expected package version",
+      "ok": true,
+      "observed": {
+        "expected": "1.143.1",
+        "actual": "1.143.1"
+      }
+    },
+    {
+      "name": "real MCP SDK client transport resolves for the host runner",
+      "ok": true,
+      "observed": {
+        "version": "1.27.1",
+        "sdkPackagePath": "<REPO>/node_modules/@modelcontextprotocol/sdk/package.json",
+        "clientResolved": "<REPO>/node_modules/@modelcontextprotocol/sdk/dist/cjs/client/index.js",
+        "sseResolved": "<REPO>/node_modules/@modelcontextprotocol/sdk/dist/cjs/client/sse.js",
+        "zodVersion": "3.25.76"
+      }
+    },
+    {
+      "name": "controlled bundle is not the deployed 0.2.5 artifact",
+      "ok": true,
+      "observed": {
+        "directory": "<HOME>/.vscode/extensions/jhamama.vscode-mcp-bridge-ext-0.2.5",
+        "present": false,
+        "entryPresent": false,
+        "sha256": null,
+        "differsFromControlled": null
+      }
+    },
+    {
+      "name": "host harness/fixture contain no SuperCollider spawn or reference",
+      "ok": true,
+      "observed": []
+    },
+    {
+      "name": "loopback ephemeral port is bindable for the gate",
+      "ok": true,
+      "observed": {
+        "ok": true,
+        "port": 54557,
+        "notReservedBridgePort": true
+      }
+    }
+  ],
+  "source": {
+    "productBaselineSha": "1827501466c9c81e408e04a2a6a9f0698ec535c1",
+    "harnessHead": "9323df875cdf597ca1214c7939f0a6cd117fc3be",
+    "branch": "test/real-host-90-20261028",
+    "baselineIsAncestor": true,
+    "productInputPaths": [
+      "src",
+      "package.json",
+      "package-lock.json",
+      "esbuild.config.js",
+      "tsconfig.json"
+    ],
+    "productInputsIdenticalToBaseline": true,
+    "productInputsWorktreeClean": true,
+    "productInputsStatusOutput": "",
+    "harnessHeadEqualsBaseline": false,
+    "bridgeExtensionId": "jhamama.vscode-mcp-bridge-ext",
+    "bridgeVersion": "0.2.5",
+    "bridgeMain": "./out/extension.js"
+  },
+  "bundle": {
+    "path": "<REPO>/out/extension.js",
+    "exists": true,
+    "size": 881640,
+    "sha256": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821",
+    "expectedSha256": "9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821",
+    "matchesExpected": true,
+    "newerThanToolSource": true
+  },
+  "bundleMarkers": {
+    "denyMessageLiteralInSource": true,
+    "denyMessageInBundle": true,
+    "sseEndpointInBundle": true,
+    "messagesEndpointInBundle": true,
+    "healthEndpointInBundle": true,
+    "codeActionProviderCommandInBundle": true
+  },
+  "toolContract": {
+    "registeredTools": [
+      "apply_code_action",
+      "close_file",
+      "create_file",
+      "delete_file",
+      "execute_vscode_command",
+      "find_references",
+      "get_active_file",
+      "get_code_actions",
+      "get_diagnostics",
+      "get_document_symbols",
+      "get_hover",
+      "get_open_tabs",
+      "get_selection",
+      "get_workspace_info",
+      "go_to_definition",
+      "kill_terminal",
+      "list_terminals",
+      "open_file",
+      "read_file",
+      "read_terminal",
+      "rename_symbol",
+      "run_terminal_command",
+      "search_workspace_symbols",
+      "show_diff",
+      "spawn_terminal",
+      "write_file",
+      "write_terminal"
+    ],
+    "runnerTools": [
+      "apply_code_action",
+      "execute_vscode_command",
+      "get_code_actions",
+      "get_workspace_info"
+    ],
+    "missingTools": [],
+    "missingFromBundle": []
+  },
+  "fixture": {
+    "directory": "<REPO>/test/host-gate/fixture",
+    "id": "sc-agent-ide-fixture.bridge90-fixture",
+    "version": "0.0.1",
+    "main": "./extension.js",
+    "entryPath": "<REPO>/test/host-gate/fixture/extension.js",
+    "entrySha256": "1ab083c43bccad3166689b04c0bbb544e220c87ea5b31d2b7f01022191260df9",
+    "packageSha256": "07aa4a74ee00c4bb1fe07e8de9df309e6a9c98226e63c995d1165f63754c54ff",
+    "engines": {
+      "vscode": "^1.93.0"
+    },
+    "activationEvents": [
+      "onStartupFinished"
+    ],
+    "ids": [
+      "scAgentIdeFixture90.combinedAllowed",
+      "scAgentIdeFixture90.combinedDenied",
+      "scAgentIdeFixture90.deniedBare",
+      "scAgentIdeFixture90.directAllowed",
+      "scAgentIdeFixture90.directDenied",
+      "scAgentIdeFixture90.objectAllowed",
+      "scAgentIdeFixture90.objectDenied"
+    ],
+    "actionTitles": [
+      "case04-empty-object-command",
+      "case05-empty-bare-command",
+      "case06a-object-carrier-member",
+      "case06b-object-carrier-nonmember",
+      "case07-combined-denied-before-edit",
+      "case09-combined-allowed-edit-precedence",
+      "case10-edit-only"
+    ]
+  },
+  "fixtureContract": {
+    "idsMatchRunner": true,
+    "fixtureIds": [
+      "scAgentIdeFixture90.combinedAllowed",
+      "scAgentIdeFixture90.combinedDenied",
+      "scAgentIdeFixture90.deniedBare",
+      "scAgentIdeFixture90.directAllowed",
+      "scAgentIdeFixture90.directDenied",
+      "scAgentIdeFixture90.objectAllowed",
+      "scAgentIdeFixture90.objectDenied"
+    ],
+    "runnerIds": [
+      "scAgentIdeFixture90.combinedAllowed",
+      "scAgentIdeFixture90.combinedDenied",
+      "scAgentIdeFixture90.deniedBare",
+      "scAgentIdeFixture90.directAllowed",
+      "scAgentIdeFixture90.directDenied",
+      "scAgentIdeFixture90.objectAllowed",
+      "scAgentIdeFixture90.objectDenied"
+    ],
+    "titlesMatchRunner": true,
+    "fixtureTitles": [
+      "case04-empty-object-command",
+      "case05-empty-bare-command",
+      "case06a-object-carrier-member",
+      "case06b-object-carrier-nonmember",
+      "case07-combined-denied-before-edit",
+      "case09-combined-allowed-edit-precedence",
+      "case10-edit-only"
+    ],
+    "runnerTitles": [
+      "case04-empty-object-command",
+      "case05-empty-bare-command",
+      "case06a-object-carrier-member",
+      "case06b-object-carrier-nonmember",
+      "case07-combined-denied-before-edit",
+      "case09-combined-allowed-edit-precedence",
+      "case10-edit-only"
+    ],
+    "idMatchesRunnerConstant": true,
+    "runnerFixtureId": "sc-agent-ide-fixture.bridge90-fixture"
+  },
+  "settingsContract": {
+    "keys": [
+      "port",
+      "authToken",
+      "allowedCommands",
+      "enableContextPush"
+    ],
+    "missing": [],
+    "defaults": {
+      "port": 3333,
+      "authToken": "",
+      "allowedCommands": [],
+      "enableContextPush": true
+    }
+  },
+  "app": {
+    "appPath": "/Applications/Visual Studio Code.app",
+    "executable": "/Applications/Visual Studio Code.app/Contents/MacOS/Code",
+    "cli": "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code",
+    "appRoot": "/Applications/Visual Studio Code.app/Contents/Resources/app",
+    "cliVersion": "1.143.1",
+    "cliCommit": "e646868227c3e3a9e3f24277c8c7220be42c0be7",
+    "expectedVersion": "1.143.1"
+  },
+  "sdk": {
+    "version": "1.27.1",
+    "sdkPackagePath": "<REPO>/node_modules/@modelcontextprotocol/sdk/package.json",
+    "clientResolved": "<REPO>/node_modules/@modelcontextprotocol/sdk/dist/cjs/client/index.js",
+    "sseResolved": "<REPO>/node_modules/@modelcontextprotocol/sdk/dist/cjs/client/sse.js",
+    "zodVersion": "3.25.76"
+  },
+  "deployed": {
+    "directory": "<HOME>/.vscode/extensions/jhamama.vscode-mcp-bridge-ext-0.2.5",
+    "present": false,
+    "entryPresent": false,
+    "sha256": null,
+    "differsFromControlled": null
+  },
+  "superCollider": {
+    "harnessReferences": [],
+    "preexistingProcessesObserved": 3,
+    "preexistingProcessesRedacted": [
+      "4261 <redacted-args>",
+      "11529 <redacted-args>",
+      "46695 <redacted-args>"
+    ]
+  },
+  "portProbe": {
+    "ok": true,
+    "port": 54557,
+    "notReservedBridgePort": true
+  },
+  "pass": true,
+  "invocation": {
+    "command": "node test/host-gate/runner/preflight.mjs 9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821",
+    "exitCode": 0,
+    "launchedVsCode": false
+  }
+}
