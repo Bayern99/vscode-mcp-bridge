@@ -1,0 +1,47 @@
+[bridge90] launching real VS Code host (pid pending) port=52315 bundle=9585228e8dcb
+{
+  "verdict": "PASS",
+  "launchCount": 1,
+  "pid": 45279,
+  "exitCode": 0,
+  "signal": null,
+  "port": 52315,
+  "caseCount": 10,
+  "passed": [
+    "case01",
+    "case04",
+    "case05",
+    "case10",
+    "case02",
+    "case03",
+    "case06",
+    "case07",
+    "case09",
+    "case08"
+  ],
+  "failed": [],
+  "harnessErrors": [],
+  "cleanupVerifiedByHost": {
+    "serverStopped": true,
+    "documentDirtyAfterRevert": false,
+    "noDirtyTargetDocument": true,
+    "documentTextRestored": false,
+    "reopenedDocumentTextRestored": true,
+    "diskAfterRevertEqualsBaseline": true
+  },
+  "authControls": {
+    "sseWithoutAuthorization": {
+      "status": 401
+    },
+    "sseWithWrongToken": {
+      "status": 401
+    }
+  },
+  "cleanup": {
+    "superColliderInOwnedTree": 0,
+    "processGroupAliveAfterExit": false,
+    "portOpenAfterExit": false,
+    "tmpRemoved": true
+  },
+  "evidence": "<REPO>/test/host-gate/evidence/host-gate-run.json"
+}
