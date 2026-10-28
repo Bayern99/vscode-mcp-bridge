@@ -6,8 +6,10 @@
 earlier launch that failed only on an over-strict harness assertion (documented below); 2 of the 3 allowed host
 launches were used.
 
-- Source (sole editor worktree): `1827501466c9c81e408e04a2a6a9f0698ec535c1`, branch `test/real-host-90-20261028`,
-  base `bdab9eb`, controlled logic commit `cf03f89`.
+- Product source baseline (the bundle inputs): `1827501466c9c81e408e04a2a6a9f0698ec535c1`, base `bdab9eb`,
+  controlled logic commit `cf03f89`, branch `test/real-host-90-20261028`. The committed harness and this evidence
+  sit on top of that commit; the static preflight admits a descendant only when every tracked product input is
+  byte-identical to it (see the post-review note).
 - Controlled bundle: `out/extension.js`, SHA-256 `9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821`,
   881 640 bytes, built once with `node esbuild.config.js --production`.
 - Fixture extension: `sc-agent-ide-fixture.bridge90-fixture` 0.0.1,
@@ -18,6 +20,8 @@ launches were used.
 - Full machine evidence: `test/host-gate/evidence/host-gate-run.json` (redacted: no token, no private paths).
 - Raw launcher stdout for both attempts: `evidence/launch-1-failed-run-output.txt`,
   `evidence/launch-2-pass-run-output.txt` (launcher already placeholder-redacts paths; no secrets).
+- Post-review static preflight result: `evidence/static-preflight-postfix.json` (no VS Code launch; paths
+  redacted).
 
 ## Commands and exits
 
@@ -30,6 +34,7 @@ launches were used.
 | 5 | auxiliary static JS analysis: `npx tsc --noEmit --allowJs --checkJs … test/host-gate/{host,runner}` | 2 — only 5 TS2339 narrowing notes (`err.code`, `server.address().port`); no undefined-identifier findings. Not a gate. |
 | 6 | Host launch **1**: `node test/host-gate/runner/launch.mjs --expect-bundle-sha 9585…ed821 --timeout-sec 300` | **1 (FAIL)** |
 | 7 | Host launch **2**: same command | **0 (PASS)** |
+| 8 | post-review static preflight at committed harness HEAD `9323df8…`: `node test/host-gate/runner/preflight.mjs 9585…ed821` (no launch) | 0 |
 
 Launch 1 (`pid 41397`, port 52085, exit 1, 11 341 ms): 9/10 cases passed; `case10` failed only the harness
 assertion “exactly one document change event” because VS Code also emits a **zero-content-change** change event on
@@ -107,6 +112,41 @@ masquerade as a denial. Every denial asserts the specific allowlist error text n
 - A separate static scan found no SuperCollider reference in the harness/fixture. Three pre-existing SuperCollider
   processes owned by the user environment were observed (count only) and untouched; this gate neither starts nor
   signals any SC process, and does not touch the current Bridge deployment or GitHub.
+
+## Post-review harness corrections (no new Host launch)
+
+Two harness defects found in review were fixed. The recorded passing run (exit 0, 10/10 cases) is unaffected and
+remains valid under the stricter rules; the passing Host run was **not** repeated.
+
+1. **Identity admission** (`runner/preflight.mjs`). The preflight previously required `git HEAD` to equal the
+   reviewed product commit `1827501…`, so a checkout of the committed harness (a descendant) could not
+   reproduce. Admission now requires all of: `1827501…` is an ancestor of the checked-out commit; every tracked
+   product input (`src`, `package.json`, `package-lock.json`, `esbuild.config.js`, `tsconfig.json`) is
+   byte-identical to `1827501…` (`git diff --quiet`); and those paths have no staged/unstaged/untracked changes.
+   The actual harness HEAD is recorded separately (`source.harnessHead`) from the product baseline
+   (`source.productBaselineSha`). Arbitrary descendants with changed product inputs remain rejected, and the
+   in-Host controlled-bundle SHA check is still authoritative.
+2. **PASS gate** (`runner/launch.mjs`). PASS now additionally requires: Host process exit code **0** with no
+   termination signal; exactly the ten expected unique case IDs; every case `pass === true`; no harness errors;
+   the in-Host PASS verdict; host cleanup (server stopped, no dirty target document, on-disk target equal to
+   baseline); empty process group; closed port; no SuperCollider in the owned tree; and the ephemeral tmp root
+   removed. These checks are materialized in the `acceptance` block of `host-gate-run.json`; the launcher exit
+   code is now driven solely by that verdict.
+
+The preserved `host-gate-run.json` was produced by the pre-fix launcher (so it has no `acceptance` block); the
+fixed launcher emits one. Its recorded fields already satisfy every new predicate, derived from that file without
+re-running anything: `oneLaunch.exit.code == 0`, `signal == null`; 10 cases with the exact unique IDs
+`case01…case10`, each `pass == true`; `errors == []`; `hostEvidence.verdict == "PASS"`;
+`cleanup.serverStopped == true`, `cleanup.noDirtyTargetDocument == true`,
+`cleanup.diskAfterRevertEqualsBaseline == true`; `processTree.processGroupAliveAfterExit == false` with no
+remaining group members; `processTree.portOpenAfterExit == false`; `superColliderMembers == []`;
+`cleanup.tmpRootRemoved == true`.
+
+Static re-run after the fix, at committed harness HEAD `9323df875cdf597ca1214c7939f0a6cd117fc3be` (the fix
+commit itself; no VS Code start, no Host launch):
+`node test/host-gate/runner/preflight.mjs 9585228e8dcb661d31c97c4a033dd8f99e568f3f2ef5f603866cb4268c1ed821`
+→ **exit `0`**. Check budget after review: 2 real Host launches (1 failed harness assertion,
+1 PASS) + this 1 static preflight = 3, as authorized.
 
 ## Scope / non-claims
 
