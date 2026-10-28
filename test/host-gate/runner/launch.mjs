@@ -22,6 +22,18 @@ const REPO_ROOT = path.resolve(HERE, '..', '..', '..')
 const EVIDENCE_OUT = path.join(REPO_ROOT, 'test', 'host-gate', 'evidence')
 
 const TARGET_BASENAME = 'bridge90-target.txt'
+const EXPECTED_CASE_IDS = [
+  'case01',
+  'case02',
+  'case03',
+  'case04',
+  'case05',
+  'case06',
+  'case07',
+  'case08',
+  'case09',
+  'case10',
+]
 const EXPECTED_LINES = [
   'case01-direct-empty-list',
   'case02-direct-allowlisted',
@@ -240,10 +252,13 @@ async function main() {
     generatedAt: new Date().toISOString(),
     purpose: 'bridge #90 command-authorization real VS Code host gate (one launch)',
     source: {
-      repoHead: preflight.source.head,
+      harnessHead: preflight.source.harnessHead,
+      productBaselineSha: preflight.source.productBaselineSha,
+      baselineIsAncestor: preflight.source.baselineIsAncestor,
       branch: preflight.source.branch,
-      expectedHead: preflight.source.expectedHeadSha,
-      trackedSourcesClean: preflight.source.trackedSourcesClean,
+      productInputsIdenticalToBaseline: preflight.source.productInputsIdenticalToBaseline,
+      productInputsWorktreeClean: preflight.source.productInputsWorktreeClean,
+      productInputPaths: preflight.source.productInputPaths,
     },
     controlledBundle: { path: '<BRIDGE_DIR>/out/extension.js', sha256: bundleSha, size: preflight.bundle.size, buildCommand: 'node esbuild.config.js --production', typecheckCommand: 'npx tsc --noEmit' },
     fixture: { id: preflight.fixture.id, version: preflight.fixture.version, entrySha256: fixtureSha },
@@ -365,13 +380,38 @@ async function main() {
     hostCleanup.serverStopped === true &&
     hostCleanup.noDirtyTargetDocument === true &&
     hostCleanup.diskAfterRevertEqualsBaseline === true
-  const verdict =
-    hostEvidence && hostEvidence.caseCount === 10 && failedCases.length === 0 && harnessErrors.length === 0 && cleanupOk ? 'PASS' : 'FAIL'
+  const hostLogTail = logTail(stderrPath)
+
+  // Remove only the directory this run created, before judging cleanup.
+  const tmpRootReal = fs.realpathSync(tmpRoot)
+  fs.rmSync(tmpRoot, { recursive: true, force: true })
+  const tmpRootRemoved = !fs.existsSync(tmpRoot)
+
+  const caseIds = cases.map((record) => record.id)
+  const uniqueCaseIds = new Set(caseIds)
+  const acceptance = {
+    hostExitCodeZero: finalExit.code === 0,
+    hostExitWithoutSignal: !finalExit.signal,
+    caseCountIsTen: cases.length === 10,
+    caseIdsExactAndUnique:
+      caseIds.length === EXPECTED_CASE_IDS.length &&
+      uniqueCaseIds.size === EXPECTED_CASE_IDS.length &&
+      EXPECTED_CASE_IDS.every((id) => uniqueCaseIds.has(id)),
+    everyCasePassed: cases.length === EXPECTED_CASE_IDS.length && cases.every((record) => record.pass === true),
+    noHarnessErrors: harnessErrors.length === 0,
+    runnerReportedPass: !!hostEvidence && hostEvidence.verdict === 'PASS',
+    hostCleanupVerified: cleanupOk,
+    processGroupGone: groupAlive === false && remainingMembers.length === 0,
+    portReleased: portStillOpen === false,
+    noSuperColliderInOwnedTree: scInGroup.length === 0,
+    tmpRootRemoved,
+  }
+  const verdict = Object.values(acceptance).every(Boolean) ? 'PASS' : 'FAIL'
 
   const rules = [
     [token, '<REDACTED_TOKEN>'],
     [tmpRoot, '<TMP_ROOT>'],
-    [fs.realpathSync(tmpRoot), '<TMP_ROOT>'],
+    [tmpRootReal, '<TMP_ROOT>'],
     [bridgeDir, '<BRIDGE_DIR>'],
     [fixtureDir, '<FIXTURE_DIR>'],
     [appRoot, '<VSCODE_APP>/Contents/Resources/app'],
@@ -424,11 +464,12 @@ async function main() {
       launchIdentity,
       hostEvidence,
       hostEvidenceReadError,
+      acceptance,
       progressTail: rawProgress.slice(-60),
-      hostLogTail: logTail(stderrPath),
+      hostLogTail,
       cleanup: {
         tmpRoot,
-        tmpRootRemoved: null,
+        tmpRootRemoved,
         evidenceCopiedBeforeRemoval: true,
       },
     },
@@ -437,12 +478,6 @@ async function main() {
 
   fs.mkdirSync(EVIDENCE_OUT, { recursive: true })
   const outFile = path.join(EVIDENCE_OUT, 'host-gate-run.json')
-  evidence.cleanup.tmpRootRemoved = true
-  fs.writeFileSync(outFile, JSON.stringify(evidence, null, 2) + '\n', 'utf8')
-
-  // Remove only the directory this run created.
-  fs.rmSync(tmpRoot, { recursive: true, force: true })
-  evidence.cleanup.tmpRootRemoved = !fs.existsSync(tmpRoot)
   fs.writeFileSync(outFile, JSON.stringify(evidence, null, 2) + '\n', 'utf8')
 
   const summary = {
@@ -456,6 +491,7 @@ async function main() {
     passed: cases.filter((record) => record.pass).map((record) => record.id),
     failed: failedCases,
     harnessErrors,
+    acceptance,
     cleanupVerifiedByHost: {
       serverStopped: hostCleanup.serverStopped === true,
       documentDirtyAfterRevert: hostCleanup.documentDirtyAfterRevert,
@@ -469,12 +505,12 @@ async function main() {
       superColliderInOwnedTree: scInGroup.length,
       processGroupAliveAfterExit: groupAlive,
       portOpenAfterExit: portStillOpen,
-      tmpRemoved: !fs.existsSync(tmpRoot),
+      tmpRemoved: tmpRootRemoved,
     },
     evidence: '<REPO>/test/host-gate/evidence/host-gate-run.json',
   }
   console.log(JSON.stringify(summary, null, 2))
-  process.exitCode = verdict === 'PASS' && !groupAlive && !portStillOpen && scInGroup.length === 0 ? 0 : 1
+  process.exitCode = verdict === 'PASS' ? 0 : 1
 }
 
 main().catch((err) => {

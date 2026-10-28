@@ -21,6 +21,12 @@ import { fileURLToPath } from 'node:url'
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 const REPO_ROOT = path.resolve(HERE, '..', '..', '..')
 
+// Tracked product inputs that determine the bridge bundle. The gate may run from
+// a committed descendant of the reviewed product commit (the harness and its
+// evidence live on top of it), but only when these are byte-identical to that
+// reviewed commit.
+const PRODUCT_INPUT_PATHS = ['src', 'package.json', 'package-lock.json', 'esbuild.config.js', 'tsconfig.json']
+
 export const DEFAULTS = {
   bridgeDir: REPO_ROOT,
   fixtureDir: path.join(REPO_ROOT, 'test', 'host-gate', 'fixture'),
@@ -50,6 +56,15 @@ function git(bridgeDir, args) {
   return execFileSync('git', args, { cwd: bridgeDir, encoding: 'utf8' }).trim()
 }
 
+function gitExit(bridgeDir, args) {
+  try {
+    execFileSync('git', args, { cwd: bridgeDir, stdio: 'pipe' })
+    return 0
+  } catch (err) {
+    return typeof err.status === 'number' ? err.status : 1
+  }
+}
+
 export async function runPreflight(options = {}) {
   const opts = { ...DEFAULTS, ...options }
   const expectedBundleSha = options.expectedBundleSha
@@ -70,29 +85,51 @@ export async function runPreflight(options = {}) {
   // ---- repository / source identity ----
   const packageJsonPath = path.join(opts.bridgeDir, 'package.json')
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'))
-  let head = null
+  let harnessHead = null
   let branch = null
-  let sourceDirty = null
+  let productDirty = null
+  let baselineIsAncestor = null
+  let productDiffExit = null
   try {
-    head = git(opts.bridgeDir, ['rev-parse', 'HEAD'])
+    harnessHead = git(opts.bridgeDir, ['rev-parse', 'HEAD'])
     branch = git(opts.bridgeDir, ['branch', '--show-current'])
-    sourceDirty = git(opts.bridgeDir, ['status', '--porcelain', '--', 'src', 'package.json', 'esbuild.config.js', 'tsconfig.json'])
+    productDirty = git(opts.bridgeDir, ['status', '--porcelain', '--', ...PRODUCT_INPUT_PATHS])
+    baselineIsAncestor = gitExit(opts.bridgeDir, ['merge-base', '--is-ancestor', opts.expectedSourceSha, harnessHead]) === 0
+    productDiffExit = gitExit(opts.bridgeDir, ['diff', '--quiet', opts.expectedSourceSha, '--', ...PRODUCT_INPUT_PATHS])
   } catch (err) {
     report.gitError = String(err.message || err)
   }
   report.source = {
-    head,
+    // The reviewed product commit the controlled bundle was built from.
+    productBaselineSha: opts.expectedSourceSha,
+    // The actual checked-out commit (may be a descendant carrying this harness).
+    harnessHead,
     branch,
-    expectedHeadSha: opts.expectedSourceSha,
-    headMatchesExpected: head === opts.expectedSourceSha,
-    trackedSourcesClean: sourceDirty === '',
-    trackedSourcesDirtyOutput: sourceDirty,
+    baselineIsAncestor,
+    productInputPaths: PRODUCT_INPUT_PATHS,
+    productInputsIdenticalToBaseline: productDiffExit === 0,
+    productInputsWorktreeClean: productDirty === '',
+    productInputsStatusOutput: productDirty,
+    harnessHeadEqualsBaseline: harnessHead === opts.expectedSourceSha,
     bridgeExtensionId: `${packageJson.publisher}.${packageJson.name}`,
     bridgeVersion: packageJson.version,
     bridgeMain: packageJson.main,
   }
-  check('git HEAD is the controlled source commit', head === opts.expectedSourceSha, { expected: opts.expectedSourceSha, actual: head })
-  check('bridge tracked sources/config are unmodified (bundle input is the reviewed tree)', sourceDirty === '', sourceDirty)
+  check(
+    'checked-out commit is the reviewed product commit or a committed descendant of it',
+    harnessHead !== null && baselineIsAncestor === true,
+    { productBaselineSha: opts.expectedSourceSha, harnessHead, baselineIsAncestor }
+  )
+  check(
+    'tracked product inputs are byte-identical to the reviewed product commit',
+    productDiffExit === 0,
+    { productBaselineSha: opts.expectedSourceSha, paths: PRODUCT_INPUT_PATHS, diffExit: productDiffExit }
+  )
+  check(
+    'product inputs have no staged, unstaged or untracked changes',
+    productDirty === '',
+    productDirty
+  )
 
   // ---- built bundle identity ----
   const bundlePath = path.join(opts.bridgeDir, 'out', 'extension.js')
