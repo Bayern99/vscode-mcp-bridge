@@ -19,7 +19,7 @@ npm run smoke:authorization # named MCP smoke — prints observed effects as JSO
 
 Only the external `vscode` module is faked (`test/vscode-mock.ts`); `VsCodeBridge`, `Settings`, and the registered tool handlers are real. Smoke output is fixture evidence, not proof against a real installed VS Code.
 
-Expected: 9 unit tests pass; the smoke prints `"ok": true` with five cases (deny direct with an empty allowlist, allow direct, deny action command, edit-only action, denied combined action).
+Expected: 12 unit tests pass; the smoke prints `"ok": true` with five cases (deny direct with an empty allowlist, allow direct, deny action command, edit-only action, denied combined action).
 
 ---
 
